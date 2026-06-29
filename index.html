@@ -243,9 +243,9 @@
                 <button onclick="setLanguage('en')" id="lang-en" class="lang-btn  ">🇬🇧 EN</button>
             </div>
             
-            <div onclick="showDashboard()" class="header-home cursor-pointer flex-shrink-0">
+            <div onclick="showDashboard()" class="header-home cursor-pointer flex-shrink-0 text-xs sm:text-sm">
                 <i class="fa-solid fa-home"></i>
-                <span class="home-text" id="home-text">Dashboard</span>
+                <span class="home-text hidden sm:inline" id="home-text">Dashboard</span>
             </div>
         </div>
         <div id="progress-bar-container" class="hidden max-w-[920px] mx-auto px-6 pb-2">
@@ -258,13 +258,13 @@
     </div>
 
     <!-- WELCOME -->
-    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-14">
+    <div id="welcome-screen" class="max-w-[920px] mx-auto px-4 sm:px-6 pt-12 sm:pt-20 pb-8 sm:pb-12">
         <div class="text-center">
             <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
                 <span class="text-[#E76F51]">★</span>
                 <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-[0.65rem] sm:text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
             </div>
-            <h1 id="welcome-title" class="heading-serif text-[1.75rem] sm:text-[2.1rem] md:text-4xl leading-[1.15] tracking-[-1px] sm:tracking-[-3px] font-bold text-[#2C3E50] mb-3 sm:mb-5">30 Hari Petualangan<br class="hidden sm:block">Yang Menyenangkan</h1>
+            <h1 id="welcome-title" class="heading-serif text-[1.4rem] sm:text-[1.85rem] md:text-3xl leading-[1.05] tracking-[-1px] font-bold text-[#2C3E50] mb-2 sm:mb-4" style="font-size: clamp(1.35rem, 6.5vw, 2.8rem) !important;">30 Hari Petualangan Yang Menyenangkan</h1>
             <p id="welcome-subtitle" class="max-w-lg mx-auto text-[0.95rem] sm:text-xl text-[#5C4033] mb-6 sm:mb-8 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#2C3E50] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
@@ -310,7 +310,7 @@
         const uiTexts = {
             id: {
                 home: "Dashboard", welcomeBadge: "30 HARI PRESENTASI PREMIUM • FULL DETAIL",
-                welcomeTitle: "30 Hari Petualangan<br class="hidden sm:block">Yang Menyenangkan",
+                welcomeTitle: "30 Hari Petualangan Yang Menyenangkan",
                 welcomeSubtitle: "Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.",
                 btnAllDays: "Lihat Semua 30 Hari", btnStart: "Mulai dari Hari 1",
                 dashboardTitle: "30 Petualangan Presentasi", dashboardSubtitle: "Setiap hari adalah presentasi slide yang indah &amp; mendalam",
@@ -324,7 +324,7 @@
             },
             en: {
                 home: "Dashboard", welcomeBadge: "30 DAYS PREMIUM PRESENTATION • FULL DETAIL",
-                welcomeTitle: "30 Days of<br>Fun Adventures",
+                welcomeTitle: "30 Days of Fun Adventures",
                 welcomeSubtitle: "Beautiful interactive presentations for parents &amp; children aged 3–6.<br>Full of big emojis, deep activities, and easy-to-understand science.",
                 btnAllDays: "See All 30 Days", btnStart: "Start with Day 1",
                 dashboardTitle: "30 Adventure Presentations", dashboardSubtitle: "Every day is a beautiful and in-depth slide presentation",
@@ -1455,7 +1455,7 @@
 <style id="fluid-responsive">
 /* Fluid & Dynamic for all devices */
 .fixed-header { height: 48px; }
-@media (min-width: 640px) { .fixed-header { height: 64px; } }
+@media (min-width: 640px) { .fixed-header { height: 56px; } }
 
 .header-inner { padding: 0 10px; }
 @media (min-width: 640px) { .header-inner { padding: 0 24px; } }
@@ -1473,7 +1473,7 @@
 @media (min-width: 640px) { .header-home { padding: 5px 11px; font-size: .82rem; } }
 
 #welcome-screen { padding-top: 56px; }
-@media (min-width: 640px) { #welcome-screen { padding-top: 78px; } }
+@media (min-width: 640px) {#welcome-screen { padding-top: 78px; } }
 
 #welcome-title { font-size: clamp(1.6rem, 7vw, 3.2rem) !important; line-height: 1.12 !important; }
 @media (min-width: 640px) { #welcome-title { font-size: clamp(2rem, 4.5vw, 3.6rem) !important; } }
@@ -1483,3 +1483,4 @@
 .slide { padding-top: 52px !important; }
 @media (min-width: 640px) { .slide { padding-top: 70px !important; } }
 </style>
+<style id="last-mobile-fix"> @media (max-width:639px){.fixed-header{height:42px!important}.header-inner{padding:0 6px!important;gap:3px!important}.header-logo{width:20px!important;height:20px!important}.header-title{font-size:.65rem!important;max-width:70px!important}.lang-btn{padding:0 3px!important;font-size:.48rem!important}.header-home{padding:1px 4px!important}#welcome-screen{padding-top:48px!important;padding-left:8px!important;padding-right:8px!important}#welcome-title{font-size:1.32rem!important;line-height:1.02!important;margin-bottom:4px!important}#welcome-subtitle{font-size:.78rem!important}#btn-all-days,#btn-start{font-size:.8rem!important;padding:8px 12px!important}.slide{padding-top:44px!important}}</style>
