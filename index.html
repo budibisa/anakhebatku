@@ -258,17 +258,17 @@
     </div>
 
     <!-- WELCOME -->
-    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-12 sm:pb-16">
+    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-14 sm:pt-20 pb-8 sm:pb-12">
         <div class="text-center">
             <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
                 <span class="text-[#E76F51]">★</span>
-                <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
+                <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-[0.65rem] sm:text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
             </div>
-            <h1 id="welcome-title" class="heading-serif text-7xl leading-none tracking-[-4px] font-bold text-[#2C3E50] mb-6">30 Hari<br>Petualangan<br>Yang Menyenangkan</h1>
-            <p id="welcome-subtitle" class="max-w-lg mx-auto text-2xl text-[#5C4033] mb-10 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
+            <h1 id="welcome-title" class="heading-serif text-[2.25rem] sm:text-5xl md:text-6xl leading-[1.1] tracking-[-1px] sm:tracking-[-3px] font-bold text-[#2C3E50] mb-3 sm:mb-5">30 Hari<br>Petualangan<br>Yang Menyenangkan</h1>
+            <p id="welcome-subtitle" class="max-w-lg mx-auto text-[0.95rem] sm:text-xl text-[#5C4033] mb-6 sm:mb-8 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-14 py-5 bg-[#2C3E50] text-white text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
-                <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-10 py-5 bg-white border-2 border-[#f3e8d8] text-[#2C3E50] text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
+                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#2C3E50] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
+                <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-5 py-3.5 sm:px-10 sm:py-5 bg-white border-2 border-[#f3e8d8] text-[#2C3E50] text-base sm:text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
             </div>
         </div>
     </div>
@@ -876,7 +876,7 @@
             return `
                 <div class="premium-card p-8">
                     <div class="section-header mb-4">🎲 ${gameTitle}</div>
-                    <div id="game-instruction" class="text-center text-[#5C4033] mb-2 text-sm">Ketuk target sebanyak mungkin dalam 10 detik!</div>
+                    <div id="game-instruction" class="text-center text-[#5C4033] mb-2 text-[0.65rem] sm:text-sm">Ketuk target sebanyak mungkin dalam 10 detik!</div>
                     ${gameHTML}
                     <div class="text-center mt-2">
                         <div id="countdown-display" class="countdown hidden mb-1">10</div>
@@ -1185,7 +1185,7 @@
                             <span>${t('prepareTitle')}</span>
                         </div>
                         <p class="mb-6 text-lg">${t('prepareIntro')}</p>
-                        <div class="space-y-3 mb-6">${prepList}</div>
+                        <div class="space-y-3 mb-3 sm:mb-5">${prepList}</div>
                         <div class="space-y-3" id="prep-checklist">
                             <label class="interactive-check flex items-center gap-3 p-3 rounded-2xl cursor-pointer border border-[#f3e8d8]">
                                 <input type="checkbox" class="w-5 h-5 accent-[#E76F51]" onchange="saveCheck(this)">
@@ -1225,7 +1225,7 @@
                 });
                 html += `
                     <div class="premium-card p-8">
-                        <div class="section-header mb-6">${t('activityTitle')}</div>
+                        <div class="section-header mb-3 sm:mb-5">${t('activityTitle')}</div>
                         <div class="space-y-3 text-lg">${stepsHTML}</div>
                         <div class="mt-7">
                             <div class="text-sm font-semibold text-[#5C4033] mb-2">${t('skillTitle')}</div>
@@ -1237,7 +1237,7 @@
                         </div>
                         <div class="mt-5 fun-prompt">
                             <div class="font-semibold mb-1">${t('whyMatters')}</div>
-                            <div class="text-sm">Aktivitas ini membantu otak anak membangun koneksi penting untuk fokus, empati, dan mengatur perasaan.</div>
+                            <div class="text-[0.65rem] sm:text-sm">Aktivitas ini membantu otak anak membangun koneksi penting untuk fokus, empati, dan mengatur perasaan.</div>
                         </div>
                         <div class="mt-6 fun-prompt text-center">
                             <strong>${t('activityTip')}</strong>
@@ -1259,7 +1259,7 @@
                     <div class="premium-card p-8">
                         <div class="section-header mb-4">📅 ${t('challengeTitle')}</div>
                         <p class="mb-4 text-lg">${theme.challenge[currentLang]}</p>
-                        <div class="mt-3 text-sm">${t('challengeNote')}</div>
+                        <div class="mt-3 text-[0.65rem] sm:text-sm">${t('challengeNote')}</div>
                     </div>
                 `;
             } else if (currentSlideIndex === 7) {
@@ -1529,5 +1529,60 @@
 }
 @media (min-width: 640px) {
   .slide { padding-top: 70px !important; }
+}
+</style>
+
+<style>
+/* === FINAL MOBILE HEADER + TITLE FIX (iPhone) === */
+.fixed-header {
+  height: 44px !important;
+}
+.header-inner {
+  padding: 0 8px !important;
+  gap: 6px !important;
+}
+.header-logo {
+  width: 22px !important;
+  height: 22px !important;
+  font-size: 0.8rem !important;
+}
+.header-title {
+  font-size: 0.78rem !important;
+  max-width: 105px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lang-switcher {
+  padding: 0 !important;
+}
+.lang-btn {
+  padding: 1px 5px !important;
+  font-size: 0.5rem !important;
+}
+.header-home {
+  padding: 2px 5px !important;
+  font-size: 0.85rem !important;
+}
+
+/* Extra top space to prevent overlap */
+#welcome-screen {
+  padding-top: 52px !important;
+}
+.slide {
+  padding-top: 48px !important;
+}
+
+/* Title even better on mobile */
+#welcome-title {
+  font-size: 1.85rem !important; line-height: 1.05 !important;
+
+  font-size: 2rem !important;
+  line-height: 1.05 !important;
+  margin-bottom: 0.5rem !important;
+}
+@media (min-width: 640px) {
+  #welcome-title { font-size: 2.8rem !important; }
+  font-size: 1.85rem !important; line-height: 1.05 !important;
+
 }
 </style>
