@@ -229,21 +229,21 @@
 
     <!-- Fixed Header -->
     <div class="fixed-header">
-        <div class="header-inner">
-            <div class="flex items-center gap-x-3">
-                <div class="header-logo bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center flex-shrink-0">
+        <div class="header-inner flex items-center justify-between w-full px-3 sm:px-6">
+            <div class="flex items-center gap-x-2 sm:gap-x-3 min-w-0">
+                <div class="header-logo bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8">
                     <span class="text-white text-lg">🌱</span>
                 </div>
-                <div class="header-title tracking-tight text-[#2C3E50]">Petualangan Anak Hebat</div>
+                <div class="header-title tracking-tight text-[#2C3E50] text-sm sm:text-base md:text-lg font-bold whitespace-nowrap overflow-hidden text-ellipsis max-w-[110px] sm:max-w-none">Petualangan Anak Hebat</div>
             </div>
             
             <!-- Language Switcher -->
-            <div class="lang-switcher">
+            <div class="lang-switcher flex-shrink-0">
                 <button onclick="setLanguage('id')" id="lang-id" class="lang-btn   active">🇮🇩 ID</button>
                 <button onclick="setLanguage('en')" id="lang-en" class="lang-btn  ">🇬🇧 EN</button>
             </div>
             
-            <div onclick="showDashboard()" class="header-home cursor-pointer">
+            <div onclick="showDashboard()" class="header-home cursor-pointer flex-shrink-0">
                 <i class="fa-solid fa-home"></i>
                 <span class="home-text" id="home-text">Dashboard</span>
             </div>
@@ -258,13 +258,13 @@
     </div>
 
     <!-- WELCOME -->
-    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-14 sm:pt-20 pb-8 sm:pb-12">
+    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-10 sm:pb-14">
         <div class="text-center">
             <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
                 <span class="text-[#E76F51]">★</span>
                 <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-[0.65rem] sm:text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
             </div>
-            <h1 id="welcome-title" class="heading-serif text-[2.25rem] sm:text-5xl md:text-6xl leading-[1.1] tracking-[-1px] sm:tracking-[-3px] font-bold text-[#2C3E50] mb-3 sm:mb-5">30 Hari<br>Petualangan<br>Yang Menyenangkan</h1>
+            <h1 id="welcome-title" class="heading-serif text-[1.75rem] sm:text-[2.1rem] md:text-4xl leading-[1.15] tracking-[-1px] sm:tracking-[-3px] font-bold text-[#2C3E50] mb-3 sm:mb-5">30 Hari Petualangan<br class="hidden sm:block">Yang Menyenangkan</h1>
             <p id="welcome-subtitle" class="max-w-lg mx-auto text-[0.95rem] sm:text-xl text-[#5C4033] mb-6 sm:mb-8 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                 <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#2C3E50] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
@@ -310,7 +310,7 @@
         const uiTexts = {
             id: {
                 home: "Dashboard", welcomeBadge: "30 HARI PRESENTASI PREMIUM • FULL DETAIL",
-                welcomeTitle: "30 Hari<br>Petualangan<br>Yang Menyenangkan",
+                welcomeTitle: "30 Hari Petualangan<br class="hidden sm:block">Yang Menyenangkan",
                 welcomeSubtitle: "Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.",
                 btnAllDays: "Lihat Semua 30 Hari", btnStart: "Mulai dari Hari 1",
                 dashboardTitle: "30 Petualangan Presentasi", dashboardSubtitle: "Setiap hari adalah presentasi slide yang indah &amp; mendalam",
@@ -1449,140 +1449,37 @@
 </body>
 </html>
 <style>
-/* === FORCE MOBILE HEADER FIX - NO OVERLAP ON IPHONE === */
-.fixed-header {
-  height: 48px !important;
-  position: fixed !important;
-  top: 0 !important;
-  z-index: 9999 !important;
-}
-@media (min-width: 640px) {
-  .fixed-header { height: 64px !important; }
-}
-
-.header-inner {
-  max-width: 920px;
-  margin: 0 auto;
-  padding: 0 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 6px;
-}
-@media (min-width: 640px) {
-  .header-inner { padding: 0 24px; gap: 12px; }
-}
-
-.header-logo { width: 24px; height: 24px; font-size: 0.9rem; flex-shrink: 0; }
-@media (min-width: 640px) { .header-logo { width: 36px; height: 36px; font-size: 1.35rem; } }
-
-.header-title { font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
-@media (min-width: 640px) { .header-title { font-size: 1.1rem; } }
-
-.lang-switcher {
-  display: flex;
-  background: white;
-  border: 1px solid #f3e8d8;
-  border-radius: 9999px;
-  padding: 1px;
-  flex-shrink: 0;
-}
-.lang-btn {
-  padding: 1px 6px;
-  font-size: 0.52rem;
-  font-weight: 600;
-  border-radius: 9999px;
-}
-@media (min-width: 640px) {
-  .lang-btn { padding: 3px 10px; font-size: 0.7rem; }
-}
-.lang-btn.active { background: #F4D35E; color: #3D3D3D; }
-
-.header-home {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  padding: 3px 6px;
-  border: 1px solid #f3e8d8;
-  border-radius: 9999px;
-  font-size: 0.65rem;
-  flex-shrink: 0;
-}
-@media (min-width: 640px) {
-  .header-home { padding: 5px 12px; font-size: 0.85rem; }
-}
-.header-home .home-text { display: none; }
-@media (min-width: 640px) { .header-home .home-text { display: inline; } }
-
-/* Prevent overlap on welcome */
-#welcome-screen {
-  padding-top: 58px !important;
-}
-@media (min-width: 640px) {
-  #welcome-screen { padding-top: 75px !important; }
-}
-
-/* Slides */
-.slide {
-  padding-top: 52px !important;
-}
-@media (min-width: 640px) {
-  .slide { padding-top: 70px !important; }
-}
-</style>
 
 <style>
-/* === FINAL MOBILE HEADER + TITLE FIX (iPhone) === */
-.fixed-header {
-  height: 44px !important;
-}
-.header-inner {
-  padding: 0 8px !important;
-  gap: 6px !important;
-}
-.header-logo {
-  width: 22px !important;
-  height: 22px !important;
-  font-size: 0.8rem !important;
-}
-.header-title {
-  font-size: 0.78rem !important;
-  max-width: 105px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.lang-switcher {
-  padding: 0 !important;
-}
-.lang-btn {
-  padding: 1px 5px !important;
-  font-size: 0.5rem !important;
-}
-.header-home {
-  padding: 2px 5px !important;
-  font-size: 0.85rem !important;
-}
 
-/* Extra top space to prevent overlap */
-#welcome-screen {
-  padding-top: 52px !important;
-}
-.slide {
-  padding-top: 48px !important;
-}
+<style id="fluid-responsive">
+/* Fluid & Dynamic for all devices */
+.fixed-header { height: 48px; }
+@media (min-width: 640px) { .fixed-header { height: 64px; } }
 
-/* Title even better on mobile */
-#welcome-title {
-  font-size: 1.85rem !important; line-height: 1.05 !important;
+.header-inner { padding: 0 10px; }
+@media (min-width: 640px) { .header-inner { padding: 0 24px; } }
 
-  font-size: 2rem !important;
-  line-height: 1.05 !important;
-  margin-bottom: 0.5rem !important;
-}
-@media (min-width: 640px) {
-  #welcome-title { font-size: 2.8rem !important; }
-  font-size: 1.85rem !important; line-height: 1.05 !important;
+.header-logo { width: 24px; height: 24px; font-size: .85rem; }
+@media (min-width: 640px) { .header-logo { width: 34px; height: 34px; font-size: 1.2rem; } }
 
-}
+.header-title { font-size: .78rem; }
+@media (min-width: 640px) { .header-title { font-size: 1rem; } }
+
+.lang-btn { padding: 1px 5px; font-size: .52rem; }
+@media (min-width: 640px) { .lang-btn { padding: 2px 8px; font-size: .68rem; } }
+
+.header-home { padding: 3px 6px; font-size: .65rem; }
+@media (min-width: 640px) { .header-home { padding: 5px 11px; font-size: .82rem; } }
+
+#welcome-screen { padding-top: 56px; }
+@media (min-width: 640px) { #welcome-screen { padding-top: 78px; } }
+
+#welcome-title { font-size: clamp(1.6rem, 7vw, 3.2rem) !important; line-height: 1.12 !important; }
+@media (min-width: 640px) { #welcome-title { font-size: clamp(2rem, 4.5vw, 3.6rem) !important; } }
+
+#welcome-subtitle { font-size: clamp(.85rem, 3.8vw, 1.2rem); }
+
+.slide { padding-top: 52px !important; }
+@media (min-width: 640px) { .slide { padding-top: 70px !important; } }
 </style>
