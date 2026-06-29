@@ -229,23 +229,23 @@
 
     <!-- Fixed Header -->
     <div class="fixed-header">
-        <div class="max-w-[920px] mx-auto px-6 h-16 flex items-center justify-between">
+        <div class="header-inner">
             <div class="flex items-center gap-x-3">
-                <div class="w-9 h-9 bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center">
-                    <span class="text-white text-2xl">🌱</span>
+                <div class="header-logo bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center flex-shrink-0">
+                    <span class="text-white text-lg">🌱</span>
                 </div>
-                <div class="font-bold text-xl tracking-tight text-[#2C3E50]">Petualangan Anak Hebat</div>
+                <div class="header-title tracking-tight text-[#2C3E50]">Petualangan Anak Hebat</div>
             </div>
             
             <!-- Language Switcher -->
-            <div class="flex items-center gap-1 bg-white border border-[#f3e8d8] rounded-3xl p-1 shadow-sm">
-                <button onclick="setLanguage('id')" id="lang-id" class="lang-btn px-3 py-1 text-xs font-semibold active">🇮🇩 ID</button>
-                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-3 py-1 text-xs font-semibold">🇬🇧 EN</button>
+            <div class="lang-switcher">
+                <button onclick="setLanguage('id')" id="lang-id" class="lang-btn   active">🇮🇩 ID</button>
+                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn  ">🇬🇧 EN</button>
             </div>
             
-            <div onclick="showDashboard()" class="flex items-center gap-x-2 px-4 py-1.5 rounded-3xl hover:bg-white text-sm font-medium cursor-pointer border border-[#f3e8d8]">
+            <div onclick="showDashboard()" class="header-home cursor-pointer">
                 <i class="fa-solid fa-home"></i>
-                <span id="home-text">Dashboard</span>
+                <span class="home-text" id="home-text">Dashboard</span>
             </div>
         </div>
         <div id="progress-bar-container" class="hidden max-w-[920px] mx-auto px-6 pb-2">
@@ -258,7 +258,7 @@
     </div>
 
     <!-- WELCOME -->
-    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-24 pb-16">
+    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-12 sm:pb-16">
         <div class="text-center">
             <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
                 <span class="text-[#E76F51]">★</span>
@@ -274,7 +274,7 @@
     </div>
 
     <!-- DASHBOARD -->
-    <div id="dashboard" class="hidden max-w-[920px] mx-auto px-6 pt-24 pb-10">
+    <div id="dashboard" class="hidden max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-8 sm:pb-10">
         <div class="mb-8 flex items-end justify-between">
             <div>
                 <h2 id="dashboard-title" class="heading-serif text-5xl font-bold tracking-tight text-[#2C3E50]">30 Petualangan Presentasi</h2>
@@ -285,7 +285,7 @@
                 <div id="streak-count" class="text-5xl font-bold text-[#E76F51]">0</div>
             </div>
         </div>
-        <div id="days-grid" class="space-y-4 sm:space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0"></div>
+        <div id="days-grid" class="space-y-8"></div>
     </div>
 
     <!-- PLAYER -->
@@ -1389,7 +1389,7 @@
 
                 const isDone = completedDays.includes(theme.day);
                 const card = document.createElement('div');
-                card.className = `premium-card p-4 sm:p-5 cursor-pointer transition-all hover:-translate-y-1 flex gap-4 week-accent week-${theme.week} ${isDone ? 'opacity-90' : ''}`;
+                card.className = `premium-card p-5 cursor-pointer transition-all hover:-translate-y-1 flex gap-4 week-accent week-${theme.week} ${isDone ? 'opacity-90' : ''}`;
                 const dayTitle = theme.title[currentLang];
                 card.innerHTML = `
                     <div class="text-6xl flex-shrink-0">${theme.emoji}</div>
@@ -1448,3 +1448,86 @@
     </script>
 </body>
 </html>
+<style>
+/* === FORCE MOBILE HEADER FIX - NO OVERLAP ON IPHONE === */
+.fixed-header {
+  height: 48px !important;
+  position: fixed !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+}
+@media (min-width: 640px) {
+  .fixed-header { height: 64px !important; }
+}
+
+.header-inner {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 10px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+@media (min-width: 640px) {
+  .header-inner { padding: 0 24px; gap: 12px; }
+}
+
+.header-logo { width: 24px; height: 24px; font-size: 0.9rem; flex-shrink: 0; }
+@media (min-width: 640px) { .header-logo { width: 36px; height: 36px; font-size: 1.35rem; } }
+
+.header-title { font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
+@media (min-width: 640px) { .header-title { font-size: 1.1rem; } }
+
+.lang-switcher {
+  display: flex;
+  background: white;
+  border: 1px solid #f3e8d8;
+  border-radius: 9999px;
+  padding: 1px;
+  flex-shrink: 0;
+}
+.lang-btn {
+  padding: 1px 6px;
+  font-size: 0.52rem;
+  font-weight: 600;
+  border-radius: 9999px;
+}
+@media (min-width: 640px) {
+  .lang-btn { padding: 3px 10px; font-size: 0.7rem; }
+}
+.lang-btn.active { background: #F4D35E; color: #3D3D3D; }
+
+.header-home {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 6px;
+  border: 1px solid #f3e8d8;
+  border-radius: 9999px;
+  font-size: 0.65rem;
+  flex-shrink: 0;
+}
+@media (min-width: 640px) {
+  .header-home { padding: 5px 12px; font-size: 0.85rem; }
+}
+.header-home .home-text { display: none; }
+@media (min-width: 640px) { .header-home .home-text { display: inline; } }
+
+/* Prevent overlap on welcome */
+#welcome-screen {
+  padding-top: 58px !important;
+}
+@media (min-width: 640px) {
+  #welcome-screen { padding-top: 75px !important; }
+}
+
+/* Slides */
+.slide {
+  padding-top: 52px !important;
+}
+@media (min-width: 640px) {
+  .slide { padding-top: 70px !important; }
+}
+</style>
