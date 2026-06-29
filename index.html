@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Anak Hebat • 30 Hari Presentasi Premium (Bilingual)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;family=Inter:wght@400;500&amp;display=swap');
+        
+        body { font-family: 'Poppins', system-ui, sans-serif; background: #FDF8F3; color: #3D3D3D; line-height: 1.75; }
+        
+        .heading-serif { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; letter-spacing: -0.04em; }
+
+        /* Responsive Slide Container */
+        .slide {
+            padding-top: 5rem;
+            padding-bottom: 4rem;
+            min-height: 100vh;
+            max-width: 920px;
+            margin: 0 auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .slide { padding-top: 6rem; padding-bottom: 5rem; padding-left: 1.5rem; padding-right: 1.5rem; }
+        }
+
+        .premium-card { background: white; border-radius: 24px; box-shadow: 0 20px 40px -15px rgb(0 0 0 / 0.1), 0 0 0 1px #f3e8d8; }
+        
+        @media (min-width: 640px) {
+            .premium-card { border-radius: 28px; }
+        }
+
+        /* Responsive Big Emoji */
+        .big-emoji {
+            font-size: 5.5rem;
+            line-height: 1;
+            filter: drop-shadow(0 20px 30px rgb(0 0 0 / 0.12));
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        @media (min-width: 640px) { .big-emoji { font-size: 7rem; } }
+        @media (min-width: 768px) { .big-emoji { font-size: 9rem; } }
+        
+        .big-emoji:hover { transform: scale(1.08) rotate(3deg); }
+
+        .section-header {
+            font-size: 1.35rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #2C3E50;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        @media (min-width: 640px) {
+            .section-header { font-size: 1.65rem; gap: 12px; }
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background: #F4D35E;
+            color: #3D3D3D;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+            flex-shrink: 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        @media (min-width: 640px) {
+            .step-number { width: 38px; height: 38px; font-size: 1.05rem; }
+        }
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(253, 248, 243, 0.96);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid #f3e8d8;
+        }
+
+        .lang-btn { padding: 3px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; transition: all 0.2s; }
+        @media (min-width: 640px) {
+            .lang-btn { padding: 4px 12px; font-size: 0.8rem; }
+        }
+
+        .lang-btn.active { background: #F4D35E; color: #3D3D3D; }
+        .lang-btn:not(.active) { background: #f3e8d8; color: #5C4033; }
+
+        .fun-prompt { background: #fff8f0; border: 2px dashed #F4D35E; border-radius: 16px; padding: 12px 14px; }
+        @media (min-width: 640px) {
+            .fun-prompt { border-radius: 20px; padding: 14px 18px; }
+        }
+
+        .activity-step, .prep-item {
+            background: #f8f1e9;
+            border-radius: 16px;
+            padding: 12px 14px;
+        }
+        @media (min-width: 640px) {
+            .activity-step, .prep-item { border-radius: 18px; padding: 14px 18px; }
+        }
+
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 11px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .conversation-starter {
+            background: #f0f7ff;
+            border-left: 4px solid #457B9D;
+            padding: 12px 14px;
+            border-radius: 0 14px 14px 0;
+            font-size: 0.95rem;
+        }
+        @media (min-width: 640px) {
+            .conversation-starter { border-left: 5px solid #457B9D; padding: 14px 18px; font-size: 1.05rem; border-radius: 0 18px 18px 0; }
+        }
+
+        /* Responsive Games */
+        .mini-game-emoji, .game-item {
+            font-size: 2.6rem;
+            transition: transform 0.15s;
+            cursor: pointer;
+            user-select: none;
+        }
+        @media (min-width: 640px) {
+            .mini-game-emoji, .game-item { font-size: 3.4rem; }
+        }
+        .game-item:active { transform: scale(0.75); }
+
+        .color-swatch {
+            width: 56px;
+            height: 56px;
+            border-radius: 9999px;
+            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        @media (min-width: 640px) {
+            .color-swatch { width: 70px; height: 70px; border: 4px solid white; }
+        }
+        .color-swatch:active { transform: scale(0.85); }
+
+        .countdown {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #E76F51;
+            line-height: 1;
+            text-shadow: 0 4px 12px rgba(231, 111, 81, 0.3);
+        }
+        @media (min-width: 640px) { .countdown { font-size: 5.5rem; } }
+        @media (min-width: 768px) { .countdown { font-size: 7rem; } }
+
+        .celebration-badge {
+            background: linear-gradient(135deg, #F4D35E, #E76F51);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 9999px;
+            font-weight: 700;
+            box-shadow: 0 8px 20px -8px #E76F51;
+            font-size: 0.95rem;
+        }
+        @media (min-width: 640px) {
+            .celebration-badge { padding: 10px 24px; font-size: 1rem; }
+        }
+
+        .week-accent { border-left: 5px solid #F4D35E; }
+        .week-1 { border-color: #F4D35E; }
+        .week-2 { border-color: #E76F51; }
+        .week-3 { border-color: #457B9D; }
+        .week-4 { border-color: #A8DADC; }
+
+        .game-target {
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #f8f1e9;
+            padding: 6px 14px;
+            border-radius: 9999px;
+        }
+        @media (min-width: 640px) {
+            .game-target { font-size: 1.1rem; padding: 8px 18px; }
+        }
+
+        /* Mobile specific improvements */
+        @media (max-width: 639px) {
+            .fixed-header .max-w-\[920px\] { padding-left: 0.75rem; padding-right: 0.75rem; }
+            .nav-button { font-size: 1.5rem !important; }
+            
+            /* Better touch targets */
+            button, .mini-game-emoji, .color-swatch, .game-item {
+                min-width: 44px;
+                min-height: 44px;
+            }
+            
+            /* Dashboard cards on mobile */
+            #days-grid > div {
+                padding: 0.9rem;
+            }
+            
+            /* Smaller text in steps */
+            .activity-step, .prep-item {
+                font-size: 0.95rem;
+            }
+        }
+        
+        /* Tablet adjustments */
+        @media (min-width: 640px) and (max-width: 1023px) {
+            .slide { max-width: 100%; padding-left: 1.25rem; padding-right: 1.25rem; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Fixed Header -->
+    <div class="fixed-header">
+        <div class="max-w-[920px] mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-9 h-9 bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center">
+                    <span class="text-white text-2xl">🌱</span>
+                </div>
+                <div class="font-bold text-xl tracking-tight text-[#2C3E50]">Petualangan Anak Hebat</div>
+            </div>
+            
+            <!-- Language Switcher -->
+            <div class="flex items-center gap-1 bg-white border border-[#f3e8d8] rounded-3xl p-1 shadow-sm">
+                <button onclick="setLanguage('id')" id="lang-id" class="lang-btn px-3 py-1 text-xs font-semibold active">🇮🇩 ID</button>
+                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-3 py-1 text-xs font-semibold">🇬🇧 EN</button>
+            </div>
+            
+            <div onclick="showDashboard()" class="flex items-center gap-x-2 px-4 py-1.5 rounded-3xl hover:bg-white text-sm font-medium cursor-pointer border border-[#f3e8d8]">
+                <i class="fa-solid fa-home"></i>
+                <span id="home-text">Dashboard</span>
+            </div>
+        </div>
+        <div id="progress-bar-container" class="hidden max-w-[920px] mx-auto px-6 pb-2">
+            <div class="flex items-center gap-3 text-xs text-[#5C4033]">
+                <div id="slide-progress-text" class="font-semibold w-16"></div>
+                <div class="flex-1 progress-container"><div id="progress-bar" class="progress-bar" style="width: 0%"></div></div>
+                <div id="slide-progress-percent" class="font-semibold w-10 text-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- WELCOME -->
+    <div id="welcome-screen" class="max-w-[920px] mx-auto px-6 pt-24 pb-16">
+        <div class="text-center">
+            <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
+                <span class="text-[#E76F51]">★</span>
+                <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
+            </div>
+            <h1 id="welcome-title" class="heading-serif text-7xl leading-none tracking-[-4px] font-bold text-[#2C3E50] mb-6">30 Hari<br>Petualangan<br>Yang Menyenangkan</h1>
+            <p id="welcome-subtitle" class="max-w-lg mx-auto text-2xl text-[#5C4033] mb-10 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-14 py-5 bg-[#2C3E50] text-white text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
+                <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-10 py-5 bg-white border-2 border-[#f3e8d8] text-[#2C3E50] text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- DASHBOARD -->
+    <div id="dashboard" class="hidden max-w-[920px] mx-auto px-6 pt-24 pb-10">
+        <div class="mb-8 flex items-end justify-between">
+            <div>
+                <h2 id="dashboard-title" class="heading-serif text-5xl font-bold tracking-tight text-[#2C3E50]">30 Petualangan Presentasi</h2>
+                <p id="dashboard-subtitle" class="text-[#5C4033] text-lg mt-1">Setiap hari adalah presentasi slide yang indah &amp; mendalam</p>
+            </div>
+            <div class="text-right">
+                <div id="streak-label" class="text-xs text-[#5C4033]">STREAK</div>
+                <div id="streak-count" class="text-5xl font-bold text-[#E76F51]">0</div>
+            </div>
+        </div>
+        <div id="days-grid" class="space-y-4 sm:space-y-6 md:grid md:grid-cols-2 md:gap-6 md:space-y-0"></div>
+    </div>
+
+    <!-- PLAYER -->
+    <div id="adventure-player" class="hidden bg-[#FDF8F3]">
+        <div id="slide-container" class="max-w-[920px] mx-auto"></div>
+        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-[#f3e8d8] py-3 z-50">
+            <div class="max-w-[920px] mx-auto px-6 flex items-center justify-between">
+                <button onclick="prevSlide()" id="prev-btn" class="nav-button text-2xl text-[#5C4033]"><i class="fa-solid fa-arrow-left"></i></button>
+                <div class="flex items-center gap-2" id="slide-dots"></div>
+                <button onclick="nextSlide()" id="next-btn" class="nav-button text-2xl text-[#5C4033]"><i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = localStorage.getItem('lang') || 'id';
+        let completedDays = JSON.parse(localStorage.getItem('completedDays') || '[]');
+        let currentDay = 1;
+        let currentSlideIndex = 0;
+        let currentGame = null;
+
+        const uiTexts = {
+            id: {
+                home: "Dashboard", welcomeBadge: "30 HARI PRESENTASI PREMIUM • FULL DETAIL",
+                welcomeTitle: "30 Hari<br>Petualangan<br>Yang Menyenangkan",
+                welcomeSubtitle: "Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.",
+                btnAllDays: "Lihat Semua 30 Hari", btnStart: "Mulai dari Hari 1",
+                dashboardTitle: "30 Petualangan Presentasi", dashboardSubtitle: "Setiap hari adalah presentasi slide yang indah &amp; mendalam",
+                streak: "STREAK", prepareTitle: "Siapkan Dulu Yuk!", prepareIntro: "Persiapan hanya 5 menit. Cari tempat yang nyaman dan matikan gadget dulu ya!",
+                prepareReady: "✅ Semua bahan sudah siap", preparePlace: "✅ Tempat nyaman &amp; gadget mati", prepareTime: "✅ Waktu 25-35 menit siap",
+                activityTitle: "Aktivitas Utama (15–20 menit)", activityTip: "💡 Tip: Tiru dan rayakan usaha anak! Anak belajar dari contohmu.",
+                gameBtn: "Mulai Bermain Sekarang 🎲", gameNote: "Banyak emoji dan tawa dijamin! 😆",
+                tipsTitle: "Manfaat Pakar &amp; Tips", challengeTitle: "Tantangan 7 Hari", challengeNote: "Jangan lupa rayakan di akhir minggu! 🎉",
+                finishTitle: "Luar Biasa!", finishBadge: "Petualang Hebat", finishBtn: "Lanjut ke Hari", slideLabel: "Slide",
+                skillTitle: "Skill yang Dilatih Hari Ini", whyMatters: "Kenapa ini penting untuk otak anak?", conversation: "💬 Tanya anak:"
+            },
+            en: {
+                home: "Dashboard", welcomeBadge: "30 DAYS PREMIUM PRESENTATION • FULL DETAIL",
+                welcomeTitle: "30 Days of<br>Fun Adventures",
+                welcomeSubtitle: "Beautiful interactive presentations for parents &amp; children aged 3–6.<br>Full of big emojis, deep activities, and easy-to-understand science.",
+                btnAllDays: "See All 30 Days", btnStart: "Start with Day 1",
+                dashboardTitle: "30 Adventure Presentations", dashboardSubtitle: "Every day is a beautiful and in-depth slide presentation",
+                streak: "STREAK", prepareTitle: "Get Ready First!", prepareIntro: "Preparation takes only 5 minutes. Find a comfortable place and turn off gadgets!",
+                prepareReady: "✅ All materials ready", preparePlace: "✅ Comfortable place &amp; gadgets off", prepareTime: "✅ 25-35 minutes ready",
+                activityTitle: "Main Activity (15–20 minutes)", activityTip: "💡 Tip: Copy and celebrate your child's efforts! Kids learn best from your example.",
+                gameBtn: "Start Playing Now 🎲", gameNote: "Lots of emojis and guaranteed fun! 😆",
+                tipsTitle: "Expert Tips &amp; Benefits", challengeTitle: "7-Day Challenge", challengeNote: "Don't forget to celebrate at the end of the week! 🎉",
+                finishTitle: "Amazing!", finishBadge: "Great Adventurer", finishBtn: "Go to Day", slideLabel: "Slide",
+                skillTitle: "Skills We're Building Today", whyMatters: "Why this matters for your child's brain?", conversation: "💬 Ask your child:"
+            }
+        };
+
+        function t(key) { return uiTexts[currentLang][key] || uiTexts.id[key] || key; }
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            updateLanguageUI();
+            if (!document.getElementById('dashboard').classList.contains('hidden')) {
+                renderDashboard();
+            } else if (!document.getElementById('adventure-player').classList.contains('hidden')) {
+                renderCurrentSlide();
+            } else {
+                updateWelcomeTexts();
+            }
+        }
+
+        function updateLanguageUI() {
+            const homeEl = document.getElementById('home-text');
+            if (homeEl) homeEl.textContent = t('home');
+            document.getElementById('lang-id').classList.toggle('active', currentLang === 'id');
+            document.getElementById('lang-en').classList.toggle('active', currentLang === 'en');
+        }
+
+        function updateWelcomeTexts() {
+            const badge = document.getElementById('welcome-badge');
+            const title = document.getElementById('welcome-title');
+            const subtitle = document.getElementById('welcome-subtitle');
+            const btnAll = document.getElementById('btn-all-days');
+            const btnStart = document.getElementById('btn-start');
+            if (badge) badge.innerHTML = t('welcomeBadge');
+            if (title) title.innerHTML = t('welcomeTitle');
+            if (subtitle) subtitle.innerHTML = t('welcomeSubtitle');
+            if (btnAll) btnAll.textContent = t('btnAllDays');
+            if (btnStart) btnStart.textContent = t('btnStart');
+        }
+
+        // ==================== COMPLETE 30 BILINGUAL THEMES WITH THEME-SPECIFIC CONVERSATION STARTERS ====================
+        const richThemes = [
+            { 
+                day: 1, week: 1, emoji: "😊", 
+                title: { id: "Aku Punya Perasaan", en: "I Have Feelings" }, 
+                story: { id: "Hai sayang! Di dalam hati kita ada empat teman kecil yang sangat penting. Mereka namanya Senang 😊, Sedih 😢, Marah 😠, dan Takut 😰. Ketika kita bisa memberi nama pada perasaan, otak kita jadi lebih pintar mengatur diri.", en: "Hi sweetheart! Inside our hearts there are four important little friends: Happy 😊, Sad 😢, Angry 😠, and Scared 😰. When we can name our feelings, our brain gets better at regulating itself." }, 
+                prepItems: { id: ["🪞 Cermin kecil atau besar", "🧸 Boneka kesayangan", "🖍️ Krayon atau spidol warna-warni", "📄 Kertas putih", "⏰ Waktu 25–35 menit"], en: ["🪞 Small or large mirror", "🧸 Favorite stuffed toy", "🖍️ Colorful crayons or markers", "📄 White paper", "⏰ 25–35 minutes"] }, 
+                activitySteps: { id: ["Berdiri di depan cermin. Buat wajah senang 😊, sedih 😢, marah 😠, takut 😰 bergantian.", "Tanya anak: “Sekarang wajahmu seperti apa? Coba tunjukkan!”", "Main boneka. Boneka jadi Senang → Sedih → Marah → Takut.", "Napas Ajaib: Tarik napas 4 hitung, hembus 6 hitung. Lakukan 3x."], en: ["Stand in front of the mirror. Make happy 😊, sad 😢, angry 😠, scared 😰 faces.", "Ask your child: “What face are you making now? Show me!”", "Play with the doll. Make it Happy → Sad → Angry → Scared.", "Magic Breathing: Inhale 4 counts, exhale 6 counts. Do it 3 times."] }, 
+                game: { id: "Tebak Perasaan Cepat!", en: "Quick Feeling Guess!" }, 
+                gameType: "feeling-match", 
+                gamePrompt: { id: "Ketuk wajah yang SENANG!", en: "Tap the HAPPY face!" }, 
+                conversationStarter: { id: "Apa perasaanmu sekarang? Tunjukkan dengan wajahmu!", en: "How are you feeling right now? Show me with your face!" },
+                tips: { id: "Child Psychologist: Jangan bilang “Jangan marah”. Coba bilang: “Kamu terlihat marah. Aku di sini.”", en: "Child Psychologist: Don’t say “Don’t be angry”. Try: “You look angry. I’m here.”" }, 
+                challenge: { id: "Buat “Papan Perasaan” dari kertas karton. Tempelkan stiker setiap malam sesuai perasaan hari itu.", en: "Make a “Feelings Board” from cardboard. Stick a sticker every night matching today’s feeling." }, 
+                funPrompts: { id: ["Coba sekarang buat wajah senang bersama! 😊"], en: ["Let’s make happy faces together right now! 😊"] } 
+            },
+            
+            { 
+                day: 2, week: 1, emoji: "🌈", 
+                title: { id: "Warna di Sekitarku", en: "Colors Around Me" }, 
+                story: { id: "Warna ada di mana-mana! Langit biru, daun hijau, baju merah kesayangan. Mari kita jadi detektif warna! 🔴🟡🔵", en: "Colors are everywhere! Blue sky, green leaves, favorite red shirt. Let’s become color detectives! 🔴🟡🔵" }, 
+                prepItems: { id: ["🖍️ Krayon 6 warna", "📄 Kertas", "🍎 Benda berwarna di rumah"], en: ["🖍️ 6 colored crayons", "📄 Paper", "🍎 Colored objects at home"] }, 
+                activitySteps: { id: ["Cari 5 benda merah di rumah sambil bernyanyi.", "Kelompokkan benda berdasarkan warna.", "Gambar sesuatu hanya dengan satu warna pilihanmu.", "Tutup mata, tebak warna benda yang disentuh."], en: ["Find 5 red objects at home while singing.", "Sort objects by color.", "Draw something using only one color you choose.", "Close eyes and guess the color of an object you touch."] }, 
+                game: { id: "Tebak Warna Cepat!", en: "Quick Color Guess!" }, 
+                gameType: "color-tap", 
+                gamePrompt: { id: "Ketuk warna MERAH!", en: "Tap the RED color!" },
+                conversationStarter: { id: "Warna apa yang paling kamu suka hari ini? Kenapa warna itu?", en: "What color do you like the most today? Why do you like that color?" },
+                tips: { id: "Gunakan nama warna yang benar. Ulangi dalam kalimat sehari-hari.", en: "Use the correct color names. Repeat them in daily sentences." }, 
+                challenge: { id: "Setiap hari cari satu warna baru di luar rumah dan gambar.", en: "Every day find one new color outside and draw it." }, 
+                funPrompts: { id: ["Ayo kita jadi detektif warna! 🔴🟡🔵"], en: ["Let’s be color detectives! 🔴🟡🔵"] } 
+            },
+            
+            { 
+                day: 3, week: 1, emoji: "🔺", 
+                title: { id: "Bentuk-bentuk Ajaib", en: "Magical Shapes" }, 
+                story: { id: "Bentuk ada di mana-mana! Roda bulat, atap segitiga, jendela persegi. Mari kita jadi detektif bentuk! 🔺🔵⬜", en: "Shapes are everywhere! Round wheels, triangle roofs, square windows. Let’s become shape detectives! 🔺🔵⬜" }, 
+                prepItems: { id: ["📐 Kertas & krayon", "🔍 Benda di rumah"], en: ["📐 Paper & crayons", "🔍 Objects at home"] }, 
+                activitySteps: { id: ["Cari bentuk bulat, segitiga, persegi di rumah.", "Gambar bentuk besar di kertas.", "Buat bentuk dengan tubuhmu (segitiga dengan tangan & kaki).", "Urutkan benda dari kecil ke besar."], en: ["Search for round, triangle, and square shapes at home.", "Draw big shapes on paper.", "Make shapes with your body (triangle with arms and legs).", "Sort objects from small to big."] }, 
+                game: { id: "Tebak Bentuk dengan Mata Tertutup!", en: "Guess the Shape with Eyes Closed!" }, 
+                gameType: "shape-hunt", 
+                gamePrompt: { id: "Ketuk BENTUK SEGITIGA!", en: "Tap the TRIANGLE shape!" },
+                conversationStarter: { id: "Bisakah kamu membuat bentuk segitiga dengan tangan dan kaki?", en: "Can you make a triangle shape with your hands and legs?" },
+                tips: { id: "Hubungkan bentuk dengan benda nyata di sekitar.", en: "Connect shapes with real objects around you." }, 
+                challenge: { id: "Buat kolase bentuk dari kertas warna.", en: "Make a shape collage from colored paper." }, 
+                funPrompts: { id: ["Ayo kita jadi detektif bentuk! 🔺"], en: ["Let’s be shape detectives! 🔺"] } 
+            },
+            
+            { 
+                day: 4, week: 1, emoji: "🔢", 
+                title: { id: "Hitung Barang di Rumah", en: "Counting Things at Home" }, 
+                story: { id: "Hitung adalah petualangan seru! Hitung sendok, kaos kaki, mainan. Ayo jadi ahli hitung! 1️⃣2️⃣3️⃣", en: "Counting is a fun adventure! Count spoons, socks, and toys. Let’s become counting experts! 1️⃣2️⃣3️⃣" }, 
+                prepItems: { id: ["🔢 Mainan atau benda untuk dihitung", "🖐️ Jari tangan"], en: ["🔢 Toys or objects to count", "🖐️ Your fingers"] }, 
+                activitySteps: { id: ["Hitung 5 benda di kamar sambil melompat.", "Hitung 10 benda di dapur.", "Buat kelompok 3 apel dan 4 sendok.", "Bandingkan mana yang lebih banyak."], en: ["Count 5 objects in the room while jumping.", "Count 10 objects in the kitchen.", "Make groups of 3 apples and 4 spoons.", "Compare which group has more."] }, 
+                game: { id: "Berapa Banyak? Cepat hitung!", en: "How Many? Count fast!" }, 
+                gameType: "counting", 
+                gamePrompt: { id: "Berapa banyak? Ketuk angkanya!", en: "How many? Tap the number!" },
+                conversationStarter: { id: "Coba hitung jari-jarimu bersama aku sekarang!", en: "Let’s count your fingers together right now!" },
+                tips: { id: "Katakan “Satu, dua, tiga!” sambil menunjuk benda nyata.", en: "Say “One, two, three!” while pointing at real objects." }, 
+                challenge: { id: "Setiap hari hitung sesuatu yang berbeda di rumah.", en: "Every day count something different at home." }, 
+                funPrompts: { id: ["Ayo kita jadi ahli hitung! 1️⃣2️⃣3️⃣"], en: ["Let’s be counting experts! 1️⃣2️⃣3️⃣"] } 
+            },
+            
+            { 
+                day: 5, week: 1, emoji: "🔤", 
+                title: { id: "Huruf dan Bunyi", en: "Letters and Sounds" }, 
+                story: { id: "Setiap huruf punya suara ajaib! A seperti apel, B seperti bola. Mari nyanyi dan ucapkan bersama! 🔤🎵", en: "Every letter has a magical sound! A like apple, B like ball. Let’s sing and say them together! 🔤🎵" }, 
+                prepItems: { id: ["🔤 Kartu huruf atau kertas", "🖍️ Krayon"], en: ["🔤 Letter cards or paper", "🖍️ Crayons"] }, 
+                activitySteps: { id: ["Hafal 5 huruf pertama dengan lagu.", "Cari benda yang huruf awalnya sama.", "Gambar huruf besar dan ucapkan bunyinya keras-keras.", "Buat lagu huruf lucu."], en: ["Learn the first 5 letters with a song.", "Find objects that start with the same letter.", "Draw big letters and say their sounds loudly.", "Make a funny letter song."] }, 
+                game: { id: "Bunyi Huruf — tebak huruf dari benda!", en: "Letter Sounds — guess the letter from objects!" }, 
+                gameType: "letter-match", 
+                gamePrompt: { id: "Ketuk huruf A!", en: "Tap the letter A!" },
+                conversationStarter: { id: "Huruf apa yang dimulai dari nama kamu?", en: "What letter does your name start with?" },
+                tips: { id: "Ucapkan bunyi dengan jelas dan senang.", en: "Say the sounds clearly and happily." }, 
+                challenge: { id: "Setiap hari pelajari satu huruf baru dan cari 3 benda.", en: "Learn one new letter every day and find 3 objects." }, 
+                funPrompts: { id: ["Ayo kita nyanyi huruf bersama! 🔤🎵"], en: ["Let’s sing the letters together! 🔤🎵"] } 
+            },
+            
+            { 
+                day: 6, week: 1, emoji: "💪", 
+                title: { id: "Tubuhku Hebat", en: "My Amazing Body" }, 
+                story: { id: "Tubuh kita luar biasa! Kita bisa berlari cepat, melompat tinggi, memeluk erat. Mari rayakan tubuh kita yang hebat! 💪🕺", en: "Our body is amazing! We can run fast, jump high, hug tight. Let’s celebrate our amazing body! 💪🕺" }, 
+                prepItems: { id: ["🪞 Cermin", "📄 Kertas untuk peta tubuh"], en: ["🪞 Mirror", "📄 Paper for body map"] }, 
+                activitySteps: { id: ["Sentuh dan sebutkan bagian tubuh sambil bernyanyi.", "Lakukan gerakan “kepala ke atas, tangan ke samping”.", "Buat “peta tubuh” dengan krayon.", "Lompat dan putar-putar."], en: ["Touch and name body parts while singing.", "Do movements: head up, arms to the side.", "Make a “body map” with crayons.", "Jump and spin around."] }, 
+                game: { id: "Simon Says Tubuh! Ikuti perintah dengan gerakan besar.", en: "Simon Says Body! Follow with big movements." }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Ketuk bagian TANGAN!", en: "Tap the HAND!" },
+                conversationStarter: { id: "Bagian tubuh apa yang paling kamu sukai? Kenapa?", en: "Which part of your body do you like the most? Why?" },
+                tips: { id: "Gerakan besar membantu otak fokus dan tenang.", en: "Big movements help the brain focus and calm down." }, 
+                challenge: { id: "Setiap hari coba gerakan baru dan rayakan “Tubuhku bisa…”", en: "Try a new movement every day and celebrate “My body can…”" }, 
+                funPrompts: { id: ["Ayo kita rayakan tubuh kita! 💪🕺"], en: ["Let’s celebrate our body! 💪🕺"] } 
+            },
+            
+            { 
+                day: 7, week: 1, emoji: "🐕", 
+                title: { id: "Hewan Sekitar Kita", en: "Animals Around Us" }, 
+                story: { id: "Hewan-hewan kecil di sekitar kita punya suara lucu! Anjing guk-guk, kucing meong. Mari kita tiru dan jadi teman hewan! 🐕🐱🐦", en: "The little animals around us have funny sounds! Dog goes woof, cat goes meow. Let’s imitate them and become animal friends! 🐕🐱🐦" }, 
+                prepItems: { id: ["📷 Gambar hewan", "🎤 Suara hewan tiruan"], en: ["📷 Animal pictures", "🎤 Animal sound imitations"] }, 
+                activitySteps: { id: ["Tiru suara hewan (anjing guk, kucing meong).", "Gerakkan tubuh seperti hewan.", "Ceritakan hewan favoritmu.", "Gambar hewan kesayangan."], en: ["Imitate animal sounds (woof, meow).", "Move your body like animals.", "Tell about your favorite animal.", "Draw your favorite animal."] }, 
+                game: { id: "Tebak Suara Hewan! Tutup mata dan tebak.", en: "Guess the Animal Sound! Close eyes and guess." }, 
+                gameType: "animal-tap", 
+                gamePrompt: { id: "Ketuk ANJING!", en: "Tap the DOG!" },
+                conversationStarter: { id: "Hewan apa yang paling kamu suka? Suaranya seperti apa?", en: "What animal do you like the most? What sound does it make?" },
+                tips: { id: "Bicara tentang hewan membantu anak mengembangkan empati.", en: "Talking about animals helps children develop empathy." }, 
+                challenge: { id: "Buat buku hewan kecil. Tambah satu hewan baru setiap hari.", en: "Make a little animal book. Add one new animal every day." }, 
+                funPrompts: { id: ["Ayo kita jadi hewan lucu! 🐕🐱"], en: ["Let’s be funny animals! 🐕🐱"] } 
+            },
+            
+            { 
+                day: 8, week: 2, emoji: "🌳", 
+                title: { id: "Pohon dan Tumbuhan", en: "Trees and Plants" }, 
+                story: { id: "Pohon memberi kita udara segar dan tempat bermain. Mari kita jadi ilmuwan kecil yang mengamati pohon dengan senang! 🌳🔬", en: "Trees give us fresh air and a place to play. Let’s become little scientists and happily observe trees! 🌳🔬" }, 
+                prepItems: { id: ["🌿 Daun atau ranting dari luar", "🖍️ Krayon", "🥤 Gelas kecil untuk tanam"], en: ["🌿 Leaves or twigs from outside", "🖍️ Crayons", "🥤 Small cup for planting"] }, 
+                activitySteps: { id: ["Amati pohon di sekitar, sentuh daun, hitung cabang.", "Tanam biji kecil di gelas.", "Gambar pohon dan warnai daunnya.", "Ceritakan apa yang pohon butuhkan."], en: ["Observe trees around you, touch leaves, count branches.", "Plant a small seed in a cup.", "Draw a tree and color its leaves.", "Tell what a tree needs."] }, 
+                game: { id: "Tebak Pohon dari Daun", en: "Guess the Tree from the Leaf" }, 
+                gameType: "nature-match", 
+                gamePrompt: { id: "Ketuk DAUN!", en: "Tap the LEAF!" },
+                conversationStarter: { id: "Daun ini seperti apa rasanya? Lembut atau kasar?", en: "How does this leaf feel? Soft or rough?" },
+                tips: { id: "Ikuti minat anak. Dokumentasikan proses.", en: "Follow the child’s interest. Document the process." }, 
+                challenge: { id: "Tanam tanaman kecil dan rawat setiap hari.", en: "Plant a small plant and take care of it every day." }, 
+                funPrompts: { id: ["Ayo kita jadi ilmuwan pohon! 🌳🔬"], en: ["Let’s be tree scientists! 🌳🔬"] } 
+            },
+            
+            { 
+                day: 9, week: 2, emoji: "☀️", 
+                title: { id: "Cuaca dan Musim", en: "Weather and Seasons" }, 
+                story: { id: "Hari ini panas seperti panggang, besok mungkin hujan. Cuaca berubah seperti suasana hati kita! Mari amati dan bermain dengan cuaca! 🌧️💨☀️", en: "Today it’s hot like baking, tomorrow it might rain. Weather changes like our mood! Let’s observe and play with the weather! 🌧️💨☀️" }, 
+                prepItems: { id: ["🖍️ Krayon warna untuk gambar cuaca", "👕 Baju sesuai cuaca"], en: ["🖍️ Colored crayons for weather drawing", "👕 Clothes suitable for the weather"] }, 
+                activitySteps: { id: ["Amati langit, buat gambar cuaca.", "Tiru gerakan hujan dan angin.", "Pakai baju sesuai cuaca.", "Ceritakan cuaca favoritmu."], en: ["Observe the sky and draw the weather.", "Imitate rain and wind movements.", "Wear clothes suitable for the weather.", "Tell about your favorite weather."] }, 
+                game: { id: "Tebak Cuaca dari Gambar", en: "Guess the Weather from a Picture" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk matahari ☀️!", en: "Tap the sun ☀️!" },
+                conversationStarter: { id: "Cuaca hari ini seperti apa rasanya di kulitmu?", en: "How does today’s weather feel on your skin?" },
+                tips: { id: "Hubungkan cuaca dengan sensasi tubuh (panas, dingin, basah).", en: "Connect weather with body sensations (hot, cold, wet)." }, 
+                challenge: { id: "Catat cuaca setiap hari selama seminggu.", en: "Record the weather every day for one week." }, 
+                funPrompts: { id: ["Ayo kita tiru hujan! 🌧️💨"], en: ["Let’s imitate the rain! 🌧️💨"] } 
+            },
+            
+            { 
+                day: 10, week: 2, emoji: "🥦", 
+                title: { id: "Makanan Sehat", en: "Healthy Food" }, 
+                story: { id: "Makanan sehat adalah superhero untuk tubuh kita! Buah dan sayur bikin kita kuat dan ceria. Mari kenal pahlawan makanan! 🦸‍♂️🥦🍎", en: "Healthy food is a superhero for our body! Fruits and vegetables make us strong and cheerful. Let’s meet the food heroes! 🦸‍♂️🥦🍎" }, 
+                prepItems: { id: ["🍎🍌 Buah dan sayur nyata", "🖍️ Krayon untuk piring pelangi"], en: ["🍎🍌 Real fruits and vegetables", "🖍️ Crayons for a rainbow plate"] }, 
+                activitySteps: { id: ["Pilih makanan sehat, kelompokkan warna.", "Coba rasa baru dengan berani.", "Buat piring sehat dari kertas.", "Ceritakan makanan favoritmu."], en: ["Choose healthy food and group by color.", "Bravely try a new taste.", "Make a healthy plate from paper.", "Tell about your favorite food."] }, 
+                game: { id: "Tebak Makanan Sehat", en: "Guess the Healthy Food" }, 
+                gameType: "food-sort", 
+                gamePrompt: { id: "Ketuk makanan SEHAT!", en: "Tap the HEALTHY food!" },
+                conversationStarter: { id: "Makanan apa yang paling kamu suka? Warnanya seperti apa?", en: "What food do you like the most? What color is it?" },
+                tips: { id: "Libatkan anak memilih dan menyiapkan makanan.", en: "Involve the child in choosing and preparing food." }, 
+                challenge: { id: "Buat piring pelangi setiap hari selama seminggu.", en: "Make a rainbow plate every day for one week." }, 
+                funPrompts: { id: ["Ayo kita jadi superhero makanan! 🦸‍♂️🥦"], en: ["Let’s be food superheroes! 🦸‍♂️🥦"] } 
+            },
+            
+            { 
+                day: 11, week: 2, emoji: "🏃", 
+                title: { id: "Gerakan Tubuhku", en: "My Body Moves" }, 
+                story: { id: "Tubuh kita suka bergerak! Gerakan membuat otot kuat dan otak lebih tajam. Ayo dansa dan lompat dengan gembira! 🏃‍♀️🕺", en: "Our body loves to move! Movement makes muscles strong and the brain sharper. Let’s dance and jump happily! 🏃‍♀️🕺" }, 
+                prepItems: { id: ["🎵 Musik atau tepuk tangan", "🪞 Cermin"], en: ["🎵 Music or clapping", "🪞 Mirror"] }, 
+                activitySteps: { id: ["Lompat, merangkak, putar, tari bebas.", "Buat “tari hewan” bersama.", "Lakukan pose yoga sederhana.", "Bernyanyi sambil bergerak."], en: ["Jump, crawl, spin, dance freely.", "Create an “animal dance” together.", "Do simple yoga poses.", "Sing while moving."] }, 
+                game: { id: "Simon Says Gerakan Besar", en: "Simon Says Big Movements" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Ketuk gerakan LOMPAT!", en: "Tap the JUMP!" },
+                conversationStarter: { id: "Gerakan apa yang paling membuatmu senang?", en: "What movement makes you the happiest?" },
+                tips: { id: "Gerakan kasar mendukung regulasi dan fokus.", en: "Gross motor activities support regulation and focus." }, 
+                challenge: { id: "Coba 3 gerakan baru setiap hari.", en: "Try 3 new movements every day." }, 
+                funPrompts: { id: ["Ayo kita gerakkan tubuh kita! 🏃‍♀️"], en: ["Let’s move our bodies! 🏃‍♀️"] } 
+            },
+            
+            { 
+                day: 12, week: 2, emoji: "👂", 
+                title: { id: "Mendengarkan Suara", en: "Listening to Sounds" }, 
+                story: { id: "Dunia penuh suara ajaib! Suara burung, hujan, mobil, dan tawa teman. Mari kita tutup mata dan dengar dengan telinga super kita! 👂✨", en: "The world is full of magical sounds! Birds, rain, cars, and friends laughing. Let’s close our eyes and listen with our super ears! 👂✨" }, 
+                prepItems: { id: ["🎧 Telinga yang peka", "🛎️ Benda untuk bunyikan suara"], en: ["🎧 Sensitive ears", "🛎️ Objects to make sounds"] }, 
+                activitySteps: { id: ["Tutup mata, dengar suara di sekitar.", "Tebak suara apa.", "Tiru suara alam.", "Buat “orkestra” dengan benda rumah."], en: ["Close eyes and listen to sounds around.", "Guess what sound it is.", "Imitate nature sounds.", "Make a “home orchestra” with household objects."] }, 
+                game: { id: "Tebak Suara Tertutup Mata", en: "Guess the Sound with Eyes Closed" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk TELINGA 👂!", en: "Tap the EAR 👂!" },
+                conversationStarter: { id: "Suara apa yang paling kamu dengar sekarang?", en: "What sound do you hear the most right now?" },
+                tips: { id: "Latihan mendengar aktif membantu perkembangan bahasa.", en: "Active listening practice helps language development." }, 
+                challenge: { id: "Catat 5 suara baru setiap hari.", en: "Note down 5 new sounds every day." }, 
+                funPrompts: { id: ["Ayo kita jadi pendengar super! 👂✨"], en: ["Let’s be super listeners! 👂✨"] } 
+            },
+            
+            { 
+                day: 13, week: 2, emoji: "🤝", 
+                title: { id: "Berbagi Mainan", en: "Sharing Toys" }, 
+                story: { id: "Berbagi membuat hati hangat dan kita punya banyak teman. Mari kita praktik berbagi dengan senang hati! 🤝😊", en: "Sharing makes the heart warm and we get more friends. Let’s practice sharing happily! 🤝😊" }, 
+                prepItems: { id: ["🧸 2-3 mainan favorit", "⏰ Timer untuk bergiliran"], en: ["🧸 2-3 favorite toys", "⏰ Timer for taking turns"] }, 
+                activitySteps: { id: ["Pilih 2 mainan, main bersama dan bergantian.", "Ceritakan perasaan saat berbagi.", "Buat aturan main bersama.", "Rayakan saat berhasil berbagi."], en: ["Choose 2 toys, play together and take turns.", "Tell how you feel when sharing.", "Make rules for playing together.", "Celebrate when you successfully share."] }, 
+                game: { id: "Permainan Bergiliran", en: "Turn-Taking Game" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk TANGAN 🤝!", en: "Tap the HAND 🤝!" },
+                conversationStarter: { id: "Bagaimana perasaanmu saat berbagi mainan?", en: "How do you feel when you share your toys?" },
+                tips: { id: "Modelkan berbagi dulu. Rayakan setiap usaha berbagi.", en: "Model sharing first. Celebrate every sharing attempt." }, 
+                challenge: { id: "Berbagi mainan dengan saudara atau teman setiap hari.", en: "Share a toy with a sibling or friend every day." }, 
+                funPrompts: { id: ["Ayo kita berbagi dengan gembira! 🤝😊"], en: ["Let’s share happily! 🤝😊"] } 
+            },
+            
+            { 
+                day: 14, week: 2, emoji: "❤️", 
+                title: { id: "Menolong Teman", en: "Helping Friends" }, 
+                story: { id: "Menolong membuat hati hangat dan kita merasa hebat! Saat kita bantu orang lain, dunia jadi lebih indah. Mari kita jadi pahlawan kecil! 🦸‍♀️❤️", en: "Helping makes the heart warm and we feel great! When we help others, the world becomes more beautiful. Let’s be little heroes! 🦸‍♀️❤️" }, 
+                prepItems: { id: ["💌 Kertas untuk kartu tolong", "🖍️ Krayon"], en: ["💌 Paper for “help” cards", "🖍️ Crayons"] }, 
+                activitySteps: { id: ["Bantu orang tua atau teman kecil.", "Buat “kartu tolong” untuk keluarga.", "Ceritakan saat kamu ditolong.", "Lakukan satu kebaikan kecil."], en: ["Help your parents or a little friend.", "Make a “help card” for family.", "Tell about a time someone helped you.", "Do one small act of kindness."] }, 
+                game: { id: "Skenario Menolong", en: "Helping Scenario Game" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk HATI ❤️!", en: "Tap the HEART ❤️!" },
+                conversationStarter: { id: "Pernahkah kamu menolong seseorang? Ceritakan!", en: "Have you ever helped someone? Tell me about it!" },
+                tips: { id: "Empati berkembang melalui praktik nyata dan validasi.", en: "Empathy develops through real practice and validation." }, 
+                challenge: { id: "Lakukan satu kebaikan setiap hari selama seminggu.", en: "Do one kind act every day for a week." }, 
+                funPrompts: { id: ["Ayo kita jadi pahlawan! 🦸‍♀️❤️"], en: ["Let’s be heroes! 🦸‍♀️❤️"] } 
+            },
+            
+            { 
+                day: 15, week: 3, emoji: "⏰", 
+                title: { id: "Waktu dan Jam", en: "Time and Clocks" }, 
+                story: { id: "Waktu berlalu seperti air mengalir. Pagi cerah, siang ramai, malam tenang. Mari kita kenal waktu dengan cara yang menyenangkan! ⏰🕒", en: "Time passes like flowing water. Bright morning, busy afternoon, calm night. Let’s get to know time in a fun way! ⏰🕒" }, 
+                prepItems: { id: ["🕒 Jam dinding atau gambar jam", "🖍️ Krayon untuk jadwal gambar"], en: ["🕒 Wall clock or picture of clock", "🖍️ Crayons for drawing schedule"] }, 
+                activitySteps: { id: ["Baca jam sederhana.", "Buat jadwal hari ini dengan gambar.", "Tunggu 1 menit dengan timer.", "Ceritakan kegiatan pagi, siang, malam."], en: ["Read a simple clock.", "Make today’s schedule with pictures.", "Wait 1 minute with a timer.", "Tell about morning, afternoon, and night activities."] }, 
+                game: { id: "Tebak Waktu Hari Ini", en: "Guess the Time of Day" }, 
+                gameType: "counting", 
+                gamePrompt: { id: "Ketuk angka 5!", en: "Tap the number 5!" },
+                conversationStarter: { id: "Apa yang biasanya kamu lakukan di pagi hari?", en: "What do you usually do in the morning?" },
+                tips: { id: "Rutinitas waktu membangun rasa aman dan executive function.", en: "Time routines build security and executive function." }, 
+                challenge: { id: "Buat jadwal bergambar dan ikuti selama seminggu.", en: "Make a picture schedule and follow it for a week." }, 
+                funPrompts: { id: ["Ayo kita jadi penjaga waktu! ⏰🕒"], en: ["Let’s be time keepers! ⏰🕒"] } 
+            },
+            
+            { 
+                day: 16, week: 3, emoji: "🔄", 
+                title: { id: "Pola dan Urutan", en: "Patterns and Sequences" }, 
+                story: { id: "Pola ada di mana-mana — merah-biru-merah-biru seperti kalung cantik. Mari kita jadi pembuat pola ajaib dan latih otak kita! 🔴🔵🔴🔵", en: "Patterns are everywhere — red-blue-red-blue like a beautiful necklace. Let’s become magic pattern makers and train our brains! 🔴🔵🔴🔵" }, 
+                prepItems: { id: ["🖍️ Krayon warna", "🍎 Benda untuk pola (sendok, batu)"], en: ["🖍️ Colored crayons", "🍎 Objects for patterns (spoons, stones)"] }, 
+                activitySteps: { id: ["Buat pola dengan krayon atau benda.", "Lanjutkan pola yang sudah dimulai.", "Buat pola dengan gerakan tubuh.", "Buat pola dengan makanan."], en: ["Make a pattern with crayons or objects.", "Continue a pattern that has been started.", "Make a pattern with body movements.", "Make a pattern with food."] }, 
+                game: { id: "Lanjutkan Pola", en: "Continue the Pattern" }, 
+                gameType: "pattern", 
+                gamePrompt: { id: "Lanjutkan pola: ketuk yang berikutnya!", en: "Continue the pattern: tap the next one!" },
+                conversationStarter: { id: "Apa yang kamu pikir akan datang berikutnya dalam pola ini?", en: "What do you think comes next in this pattern?" },
+                tips: { id: "Pola adalah dasar algebra dan berpikir logis.", en: "Patterns are the foundation of algebra and logical thinking." }, 
+                challenge: { id: "Buat pola baru setiap hari dan tunjukkan ke keluarga.", en: "Create a new pattern every day and show it to family." }, 
+                funPrompts: { id: ["Ayo kita buat pola cantik! 🔴🔵"], en: ["Let’s make beautiful patterns! 🔴🔵"] } 
+            },
+            
+            { 
+                day: 17, week: 3, emoji: "🎨", 
+                title: { id: "Seni Menggambar", en: "Art of Drawing" }, 
+                story: { id: "Menggambar adalah cara anak bercerita tanpa kata. Setiap goresan adalah perasaan dan imajinasimu. Mari kita gambar dengan bebas dan gembira! 🎨🖌️", en: "Drawing is a child’s way of telling stories without words. Every stroke is your feeling and imagination. Let’s draw freely and happily! 🎨🖌️" }, 
+                prepItems: { id: ["🖍️ Krayon berbagai warna", "📄 Kertas besar"], en: ["🖍️ Crayons in various colors", "📄 Large paper"] }, 
+                activitySteps: { id: ["Gambar bebas dengan mata tertutup.", "Gambar perasaan hari ini.", "Buat kolase dari krayon bekas atau daun.", "Ceritakan gambarmu."], en: ["Draw freely with eyes closed.", "Draw today’s feeling.", "Make a collage from old crayons or leaves.", "Tell about your drawing."] }, 
+                game: { id: "Gambar Buta Tebak", en: "Blind Drawing Guess" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk KUAS 🎨!", en: "Tap the PAINTBRUSH 🎨!" },
+                conversationStarter: { id: "Ceritakan tentang gambarmu. Apa yang kamu gambar?", en: "Tell me about your drawing. What did you draw?" },
+                tips: { id: "Jangan tanya “Apa ini?”. Katakan “Ceritakan tentang gambarnya.”", en: "Don’t ask “What is this?”. Say “Tell me about your drawing.”" }, 
+                challenge: { id: "Gambar sesuatu baru setiap hari.", en: "Draw something new every day." }, 
+                funPrompts: { id: ["Ayo kita jadi seniman! 🎨🖌️"], en: ["Let’s be artists! 🎨🖌️"] } 
+            },
+            
+            { 
+                day: 18, week: 3, emoji: "🎵", 
+                title: { id: "Lagu dan Menyanyi", en: "Songs and Singing" }, 
+                story: { id: "Lagu membuat kita bahagia dan membantu mengingat hal-hal baru. Menyanyi bersama memperkuat ikatan keluarga. Mari kita nyanyi dengan suara keras! 🎤🎵", en: "Songs make us happy and help remember new things. Singing together strengthens family bonds. Let’s sing with loud voices! 🎤🎵" }, 
+                prepItems: { id: ["🎤 Suara merdu", "🎵 Lagu favorit atau buat sendiri"], en: ["🎤 Sweet voice", "🎵 Favorite song or make one up"] }, 
+                activitySteps: { id: ["Nyanyikan lagu favorit dengan gerakan.", "Buat lagu sendiri tentang hari ini.", "Tiru ritme dengan tepuk tangan.", "Bernyanyi sambil berjalan."], en: ["Sing a favorite song with movements.", "Make up your own song about today.", "Imitate rhythm with clapping.", "Sing while walking."] }, 
+                game: { id: "Tebak Lagu dari Gerakan", en: "Guess the Song from Movements" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk NOTA 🎵!", en: "Tap the MUSIC NOTE 🎵!" },
+                conversationStarter: { id: "Lagu apa yang membuatmu ingin menari?", en: "What song makes you want to dance?" },
+                tips: { id: "Bernyanyi mendukung bahasa, memori, dan regulasi emosi.", en: "Singing supports language, memory, and emotional regulation." }, 
+                challenge: { id: "Ciptakan lagu baru setiap hari.", en: "Create a new song every day." }, 
+                funPrompts: { id: ["Ayo kita nyanyi bersama! 🎤🎵"], en: ["Let’s sing together! 🎤🎵"] } 
+            },
+            
+            { 
+                day: 19, week: 3, emoji: "🔢", 
+                title: { id: "Angka di Mana-mana", en: "Numbers Everywhere" }, 
+                story: { id: "Angka ada di mana-mana — di pintu rumah, di lift, di jam. Mari kita jadi detektif angka dan temukan angka-angka tersembunyi! 🔢🔍", en: "Numbers are everywhere — on the house door, in the elevator, on the clock. Let’s become number detectives and find hidden numbers! 🔢🔍" }, 
+                prepItems: { id: ["🔢 Gambar angka atau kertas", "🚪 Pintu dan benda berangka"], en: ["🔢 Number pictures or paper", "🚪 Doors and numbered objects"] }, 
+                activitySteps: { id: ["Cari angka di rumah.", "Hitung sambil berjalan.", "Buat angka dari krayon atau benda.", "Bandingkan jumlah benda."], en: ["Search for numbers at home.", "Count while walking.", "Make numbers from crayons or objects.", "Compare quantities of objects."] }, 
+                game: { id: "Cari Angka di Sekitar", en: "Find Numbers Around You" }, 
+                gameType: "counting", 
+                gamePrompt: { id: "Ketuk angka 3!", en: "Tap the number 3!" },
+                conversationStarter: { id: "Berapa umurmu? Tunjukkan dengan jari!", en: "How old are you? Show me with your fingers!" },
+                tips: { id: "Hubungkan angka dengan jumlah nyata, bukan hanya hafalan.", en: "Connect numbers with real quantities, not just memorization." }, 
+                challenge: { id: "Cari 5 angka baru setiap hari.", en: "Find 5 new numbers every day." }, 
+                funPrompts: { id: ["Ayo kita jadi detektif angka! 🔢🔍"], en: ["Let’s be number detectives! 🔢🔍"] } 
+            },
+            
+            { 
+                day: 20, week: 3, emoji: "🎨", 
+                title: { id: "Warna Campur", en: "Mixing Colors" }, 
+                story: { id: "Campur warna merah + kuning = oranye seperti matahari terbenam! Mari kita jadi ilmuwan warna dan ciptakan warna-warna ajaib! 🎨🟥🟨", en: "Mix red + yellow = orange like the sunset! Let’s become color scientists and create magical colors! 🎨🟥🟨" }, 
+                prepItems: { id: ["🖍️ Krayon atau cat air", "📄 Kertas", "🥣 Wadah kecil untuk campur"], en: ["🖍️ Crayons or watercolor", "📄 Paper", "🥣 Small mixing container"] }, 
+                activitySteps: { id: ["Campur warna dengan krayon atau cat air.", "Buat pelangi dari kertas warna.", "Tebak warna baru dari campuran.", "Gambar dengan warna campuran."], en: ["Mix colors with crayons or watercolor.", "Make a rainbow from colored paper.", "Guess new colors from mixing.", "Draw using mixed colors."] }, 
+                game: { id: "Tebak Warna Campuran", en: "Guess the Mixed Color" }, 
+                gameType: "color-tap", 
+                gamePrompt: { id: "Ketuk warna ORANYE!", en: "Tap the ORANGE color!" },
+                conversationStarter: { id: "Warna apa yang kamu buat saat mencampur dua warna?", en: "What color did you make when you mixed two colors?" },
+                tips: { id: "Eksperimen warna adalah pengantar sains yang menyenangkan.", en: "Color experiments are a fun introduction to science." }, 
+                challenge: { id: "Ciptakan warna baru dan beri nama setiap hari.", en: "Create a new color and name it every day." }, 
+                funPrompts: { id: ["Ayo kita campur warna! 🎨🟥🟨"], en: ["Let’s mix colors! 🎨🟥🟨"] } 
+            },
+            
+            { 
+                day: 21, week: 3, emoji: "🍃", 
+                title: { id: "Bentuk di Alam", en: "Shapes in Nature" }, 
+                story: { id: "Daun berbentuk hati, batu bulat seperti bola, ranting lurus seperti garis. Alam penuh bentuk yang indah. Mari kita jadi penjelajah alam! 🌳🍃", en: "Leaves shaped like hearts, round stones like balls, straight twigs like lines. Nature is full of beautiful shapes. Let’s become nature explorers! 🌳🍃" }, 
+                prepItems: { id: ["🌿 Daun, ranting, batu dari luar", "📄 Kertas untuk gambar"], en: ["🌿 Leaves, twigs, stones from outside", "📄 Paper for drawing"] }, 
+                activitySteps: { id: ["Cari bentuk di taman atau halaman.", "Buat bentuk dari daun dan ranting.", "Gambar bentuk alam.", "Ceritakan bentuk yang kamu temukan."], en: ["Find shapes in the garden or yard.", "Make shapes from leaves and twigs.", "Draw nature shapes.", "Tell about the shapes you found."] }, 
+                game: { id: "Cari Bentuk di Alam", en: "Find Shapes in Nature" }, 
+                gameType: "shape-hunt", 
+                gamePrompt: { id: "Ketuk BENTUK BULAT!", en: "Tap the ROUND shape!" },
+                conversationStarter: { id: "Bentuk apa yang kamu lihat di daun ini?", en: "What shape do you see in this leaf?" },
+                tips: { id: "Menghubungkan bentuk dengan alam membangun rasa cinta lingkungan.", en: "Connecting shapes with nature builds love for the environment." }, 
+                challenge: { id: "Kumpulkan benda alam dan buat bentuk darinya.", en: "Collect natural objects and make shapes from them." }, 
+                funPrompts: { id: ["Ayo kita jadi penjelajah! 🌳🍃"], en: ["Let’s be explorers! 🌳🍃"] } 
+            },
+            
+            { 
+                day: 22, week: 4, emoji: "💪", 
+                title: { id: "Tubuhku Bisa Apa", en: "What My Body Can Do" }, 
+                story: { id: "Tubuh kita bisa berlari kencang, menari indah, memeluk erat! Mari kita rayakan semua yang tubuh kita bisa lakukan dengan bangga! 💪🎉", en: "Our body can run fast, dance beautifully, hug tightly! Let’s celebrate everything our body can do with pride! 💪🎉" }, 
+                prepItems: { id: ["🪞 Cermin", "📄 Kertas untuk daftar"], en: ["🪞 Mirror", "📄 Paper for list"] }, 
+                activitySteps: { id: ["Buat daftar “Tubuhku Bisa…”", "Coba gerakan baru.", "Rayakan setiap kemampuan dengan tepuk tangan.", "Ceritakan hal yang paling kamu sukai dari tubuhmu."], en: ["Make a list “My Body Can…”", "Try a new movement.", "Celebrate every ability with clapping.", "Tell what you like most about your body."] }, 
+                game: { id: "Tantangan Gerakan Baru", en: "New Movement Challenge" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Ketuk gerakan PUTAR!", en: "Tap the SPIN!" },
+                conversationStarter: { id: "Tubuhmu bisa melakukan apa yang membuatmu bangga?", en: "What can your body do that makes you proud?" },
+                tips: { id: "Fokus pada usaha dan kegembiraan, bukan kompetisi.", en: "Focus on effort and joy, not competition." }, 
+                challenge: { id: "Coba satu gerakan baru setiap hari dan rayakan.", en: "Try one new movement every day and celebrate." }, 
+                funPrompts: { id: ["Ayo kita rayakan tubuh kita! 💪🎉"], en: ["Let’s celebrate our body! 💪🎉"] } 
+            },
+            
+            { 
+                day: 23, week: 4, emoji: "🐱", 
+                title: { id: "Hewan Peliharaan", en: "Pet Animals" }, 
+                story: { id: "Hewan peliharaan mengajari kita kasih sayang, tanggung jawab, dan empati. Mari kita jadi pengasuh hewan yang baik dan penuh cinta! 🐱❤️", en: "Pet animals teach us love, responsibility, and empathy. Let’s become good and loving pet caregivers! 🐱❤️" }, 
+                prepItems: { id: ["🧸 Mainan hewan", "📦 Kotak untuk “rumah” hewan"], en: ["🧸 Toy animals", "📦 Box for “home”"] }, 
+                activitySteps: { id: ["Ceritakan tentang hewan peliharaan (atau bayangkan punya).", "Buat “rumah” untuk hewan mainan.", "Gambar hewan dan ceritakan kebutuhannya.", "Bermain peran merawat hewan."], en: ["Tell about pet animals (or imagine having one).", "Make a “home” for toy animals.", "Draw an animal and tell its needs.", "Role-play caring for animals."] }, 
+                game: { id: "Peran Hewan Peliharaan", en: "Pet Animal Role Play" }, 
+                gameType: "animal-tap", 
+                gamePrompt: { id: "Ketuk KUCING!", en: "Tap the CAT!" },
+                conversationStarter: { id: "Jika kamu punya hewan peliharaan, apa yang akan kamu lakukan untuk merawatnya?", en: "If you had a pet, what would you do to take care of it?" },
+                tips: { id: "Berinteraksi dengan hewan membantu perkembangan sosial-emosional.", en: "Interacting with animals helps social-emotional development." }, 
+                challenge: { id: "Buat buku harian hewan peliharaan selama seminggu.", en: "Make a pet animal diary for one week." }, 
+                funPrompts: { id: ["Ayo kita jadi pengasuh hewan! 🐱❤️"], en: ["Let’s be pet caregivers! 🐱❤️"] } 
+            },
+            
+            { 
+                day: 24, week: 4, emoji: "🍎", 
+                title: { id: "Sayuran dan Buah", en: "Vegetables and Fruits" }, 
+                story: { id: "Buah dan sayur adalah pahlawan super untuk tubuh kita! Mereka datang dalam banyak warna dan bentuk. Mari kita kenal makanan yang membuat kita kuat! 🍏🥕", en: "Fruits and vegetables are superheroes for our body! They come in many colors and shapes. Let’s get to know the food that makes us strong! 🍏🥕" }, 
+                prepItems: { id: ["🍎🥕 Buah dan sayur nyata", "🖍️ Krayon", "🍽️ Kertas untuk piring pelangi"], en: ["🍎🥕 Real fruits and vegetables", "🖍️ Crayons", "🍽️ Paper for rainbow plate"] }, 
+                activitySteps: { id: ["Cicipi sayur dan buah baru dengan berani.", "Kelompokkan berdasarkan warna.", "Buat “piring pelangi”.", "Ceritakan rasa dan tekstur."], en: ["Bravely taste new vegetables and fruits.", "Group by color.", "Make a “rainbow plate”.", "Tell about taste and texture."] }, 
+                game: { id: "Tebak Buah dari Sentuhan", en: "Guess the Fruit by Touch" }, 
+                gameType: "food-sort", 
+                gamePrompt: { id: "Ketuk BUAH APPLE 🍎!", en: "Tap the APPLE 🍎!" },
+                conversationStarter: { id: "Buah atau sayur apa yang paling enak menurutmu?", en: "Which fruit or vegetable tastes the best to you?" },
+                tips: { id: "Libatkan anak memilih dan menyiapkan makanan. Rayakan keberanian mencoba.", en: "Involve the child in choosing and preparing food. Celebrate the courage to try." }, 
+                challenge: { id: "Coba satu buah atau sayur baru setiap hari.", en: "Try one new fruit or vegetable every day." }, 
+                funPrompts: { id: ["Ayo kita jadi pahlawan makanan! 🦸‍♀️🍏"], en: ["Let’s be food heroes! 🦸‍♀️🍏"] } 
+            },
+            
+            { 
+                day: 25, week: 4, emoji: "💧", 
+                title: { id: "Air dan Api", en: "Water and Fire" }, 
+                story: { id: "Air memberi kehidupan seperti sungai yang mengalir. Api memberi kehangatan seperti matahari. Mari kita belajar menghormati dengan aman dan seru! 💧🔥", en: "Water gives life like a flowing river. Fire gives warmth like the sun. Let’s learn to respect them safely and fun! 💧🔥" }, 
+                prepItems: { id: ["💧 Air dalam wadah", "🕯️ Lilin (dengan pengawasan)"], en: ["💧 Water in a container", "🕯️ Candle (with supervision)"] }, 
+                activitySteps: { id: ["Main air (tumpah, tuang, gelembung).", "Amati lilin (dengan pengawasan ketat).", "Bicara aturan keselamatan dengan cara bermain.", "Gambar air dan api."], en: ["Play with water (pour, spill, bubbles).", "Observe a candle (with strict supervision).", "Talk about safety rules through play.", "Draw water and fire."] }, 
+                game: { id: "Tebak Aman atau Berbahaya", en: "Guess Safe or Dangerous" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk AIR 💧!", en: "Tap the WATER 💧!" },
+                conversationStarter: { id: "Apa yang harus kita lakukan agar tetap aman di sekitar air?", en: "What should we do to stay safe around water?" },
+                tips: { id: "Ajarkan aturan keselamatan dengan cara bermain yang jelas dan berulang.", en: "Teach safety rules through clear and repeated play." }, 
+                challenge: { id: "Praktik aturan keselamatan air dan api setiap hari.", en: "Practice water and fire safety rules every day." }, 
+                funPrompts: { id: ["Ayo kita belajar dengan aman! 💧🔥"], en: ["Let’s learn safely! 💧🔥"] } 
+            },
+            
+            { 
+                day: 26, week: 4, emoji: "🌙", 
+                title: { id: "Langit dan Bintang", en: "Sky and Stars" }, 
+                story: { id: "Langit berubah setiap hari. Pagi biru cerah, sore jingga indah, malam penuh bintang berkelap-kelip. Mari kita jadi astronom kecil! 🌙⭐", en: "The sky changes every day. Bright blue morning, beautiful orange evening, night full of twinkling stars. Let’s become little astronomers! 🌙⭐" }, 
+                prepItems: { id: ["🌌 Jendela atau luar rumah", "🖍️ Krayon gelap untuk gambar"], en: ["🌌 Window or outside", "🖍️ Dark crayons for drawing"] }, 
+                activitySteps: { id: ["Amati langit pagi dan malam.", "Gambar bulan dan bintang.", "Buat “bintang” dari kertas.", "Ceritakan bintang favoritmu."], en: ["Observe the morning and night sky.", "Draw the moon and stars.", "Make “stars” from paper.", "Tell about your favorite star."] }, 
+                game: { id: "Cari Bintang di Langit", en: "Find Stars in the Sky" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk BINTANG ⭐!", en: "Tap the STAR ⭐!" },
+                conversationStarter: { id: "Apa yang kamu lihat di langit malam ini?", en: "What do you see in the night sky tonight?" },
+                tips: { id: "Rasa kagum terhadap langit mendukung rasa ingin tahu ilmiah.", en: "Wonder about the sky supports scientific curiosity." }, 
+                challenge: { id: "Amati langit setiap malam dan gambar apa yang kamu lihat.", en: "Observe the sky every night and draw what you see." }, 
+                funPrompts: { id: ["Ayo kita jadi astronom! 🌙⭐"], en: ["Let’s be astronomers! 🌙⭐"] } 
+            },
+            
+            { 
+                day: 27, week: 4, emoji: "👨‍👩‍👧", 
+                title: { id: "Keluargaku", en: "My Family" }, 
+                story: { id: "Keluarga adalah orang-orang yang menyayangi kita. Setiap keluarga berbeda dan istimewa. Mari kita rayakan keluarga kita dengan penuh cinta! 👨‍👩‍👧‍👦❤️", en: "Family is the people who love us. Every family is different and special. Let’s celebrate our family with full love! 👨‍👩‍👧‍👦❤️" }, 
+                prepItems: { id: ["📷 Foto keluarga atau gambar", "🖍️ Krayon"], en: ["📷 Family photo or drawing", "🖍️ Crayons"] }, 
+                activitySteps: { id: ["Ceritakan tentang anggota keluarga.", "Gambar keluarga.", "Buat “buku keluarga”.", "Ceritakan kenangan bersama yang paling indah."], en: ["Tell about family members.", "Draw your family.", "Make a “family book”.", "Tell about the most beautiful memory together."] }, 
+                game: { id: "Tebak Anggota Keluarga dari Cerita", en: "Guess Family Member from Story" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk KELUARGA 👨‍👩‍👧!", en: "Tap the FAMILY 👨‍👩‍👧!" },
+                conversationStarter: { id: "Siapa di keluarga yang paling sering membuatmu tertawa?", en: "Who in the family makes you laugh the most?" },
+                tips: { id: "Validasi perasaan anak tentang keluarga. Rayakan keunikan setiap anggota.", en: "Validate the child’s feelings about family. Celebrate the uniqueness of each member." }, 
+                challenge: { id: "Buat tradisi keluarga baru bersama.", en: "Create a new family tradition together." }, 
+                funPrompts: { id: ["Ayo kita rayakan keluarga kita! 👨‍👩‍👧‍👦❤️"], en: ["Let’s celebrate our family! 👨‍👩‍👧‍👦❤️"] } 
+            },
+            
+            { 
+                day: 28, week: 4, emoji: "👋", 
+                title: { id: "Teman Baru", en: "New Friends" }, 
+                story: { id: "Berteman dengan orang baru menyenangkan! Kita belajar berbagi, bicara, dan bermain bersama. Mari kita coba menyapa dengan ramah! 👋😊", en: "Making friends with new people is fun! We learn to share, talk, and play together. Let’s try greeting them friendly! 👋😊" }, 
+                prepItems: { id: ["🧸 Boneka untuk role play", "📜 Kertas untuk aturan berteman"], en: ["🧸 Doll for role play", "📜 Paper for friendship rules"] }, 
+                activitySteps: { id: ["Role play menyapa teman baru.", "Buat aturan berteman yang baik.", "Main peran di taman imajinasi.", "Ceritakan teman lama yang kamu sukai."], en: ["Role-play greeting a new friend.", "Make good rules for being friends.", "Role-play in an imaginary park.", "Tell about an old friend you like."] }, 
+                game: { id: "Skenario Berteman Baru", en: "New Friend Scenario" }, 
+                gameType: "emoji-tap", 
+                gamePrompt: { id: "Ketuk TANGAN 👋!", en: "Tap the HAND 👋!" },
+                conversationStarter: { id: "Bagaimana cara menyapa teman baru dengan ramah?", en: "How do you greet a new friend in a friendly way?" },
+                tips: { id: "Latihan peran membantu anak siap menghadapi situasi sosial nyata.", en: "Role-play helps children prepare for real social situations." }, 
+                challenge: { id: "Coba sapa satu orang baru setiap hari.", en: "Try greeting one new person every day." }, 
+                funPrompts: { id: ["Ayo kita jadi teman yang baik! 👋😊"], en: ["Let’s be good friends! 👋😊"] } 
+            },
+            
+            { 
+                day: 29, week: 4, emoji: "🌟", 
+                title: { id: "Aku Bisa Mandiri", en: "I Can Be Independent" }, 
+                story: { id: "Mandiri berarti bisa melakukan hal kecil sendiri. Ini membuat kita bangga dan percaya diri! Mari kita coba hal-hal kecil dengan bangga hari ini! 🌟💪", en: "Being independent means being able to do small things by yourself. This makes us proud and confident! Let’s try small things with pride today! 🌟💪" }, 
+                prepItems: { id: ["👕 Baju sendiri", "🥤 Gelas untuk minum", "🧸 Mainan untuk dirapikan"], en: ["👕 Your own clothes", "🥤 Cup for drinking", "🧸 Toys to tidy"] }, 
+                activitySteps: { id: ["Coba pakai baju sendiri.", "Ambil minum sendiri.", "Rapikan mainan.", "Rayakan setiap usaha dengan tepuk tangan."], en: ["Try putting on clothes by yourself.", "Get your own drink.", "Tidy up toys.", "Celebrate every effort with clapping."] }, 
+                game: { id: "Tantangan Mandiri 5 Menit", en: "5-Minute Independence Challenge" }, 
+                gameType: "counting", 
+                gamePrompt: { id: "Ketuk angka 4!", en: "Tap the number 4!" },
+                conversationStarter: { id: "Apa yang bisa kamu lakukan sendiri tanpa bantuan?", en: "What can you do by yourself without help?" },
+                tips: { id: "Beri waktu dan kesempatan. Jangan langsung bantu. Rayakan usaha, bukan hanya hasil.", en: "Give time and opportunity. Don’t help immediately. Celebrate effort, not just results." }, 
+                challenge: { id: "Lakukan satu hal mandiri baru setiap hari.", en: "Do one new independent thing every day." }, 
+                funPrompts: { id: ["Ayo kita jadi mandiri! 🌟💪"], en: ["Let’s be independent! 🌟💪"] } 
+            },
+            
+            { 
+                day: 30, week: 4, emoji: "🌟", 
+                title: { id: "Kita Hebat Bersama", en: "We Are Great Together" }, 
+                story: { id: "Selama 30 hari kita sudah belajar banyak hal bersama. Kita hebat karena kita bersama! Mari kita rayakan semua petualangan dengan gembira dan buat janji untuk terus belajar! 🌟🎉", en: "For 30 days we have learned so many things together. We are great because we are together! Let’s celebrate all our adventures happily and make a promise to keep learning! 🌟🎉" }, 
+                prepItems: { id: ["📖 Buku kenangan atau poster", "🎉 Dekorasi sederhana"], en: ["📖 Memory book or poster", "🎉 Simple decorations"] }, 
+                activitySteps: { id: ["Review semua hari favorit.", "Buat poster “Kita Hebat”.", "Rayakan dengan tarian, lagu, dan pelukan besar.", "Buat janji lanjutkan petualangan."], en: ["Review all your favorite days.", "Make a “We Are Great” poster.", "Celebrate with dancing, singing, and big hugs.", "Make a promise to continue the adventures."] }, 
+                game: { id: "Kuis 30 Hari Kenangan — tebak hari apa dari emoji atau cerita.", en: "30-Day Memory Quiz — guess the day from emoji or story." }, 
+                gameType: "memory", 
+                gamePrompt: { id: "Ketuk pasangan yang sama!", en: "Tap the matching pair!" },
+                conversationStarter: { id: "Apa petualangan favoritmu selama 30 hari ini?", en: "What was your favorite adventure during these 30 days?" },
+                tips: { id: "Perayaan bersama memperkuat attachment dan growth mindset. Rayakan proses, bukan hanya hasil.", en: "Celebrating together strengthens attachment and growth mindset. Celebrate the process, not just the result." }, 
+                challenge: { id: "Buat buku kenangan 30 hari dan lanjutkan petualangan setiap minggu.", en: "Make a 30-day memory book and continue the adventures every week." }, 
+                funPrompts: { id: ["Ayo kita rayakan bersama! 🌟🎉"], en: ["Let’s celebrate together! 🌟🎉"] } 
+            }
+        ];
+
+        function getCurrentTheme() {
+            return richThemes.find(t => t.day === currentDay);
+        }
+
+        // ==================== VARIED MINI GAMES WITH 10-SECOND COUNTDOWN ====================
+        let gameInterval = null;
+        let gameScore = 0;
+        let gameTimeLeft = 10;
+        let gameActive = false;
+
+        function renderGameSlide(theme) {
+            const gameTitle = theme.game[currentLang];
+            const prompt = theme.gamePrompt ? theme.gamePrompt[currentLang] : (currentLang === 'id' ? "Mainkan game seru!" : "Play the fun game!");
+            let gameHTML = "";
+
+            switch (theme.gameType) {
+                case "feeling-match":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-6 py-4"></div></div>`;
+                    break;
+                case "color-tap":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-4 py-4 flex-wrap"></div></div>`;
+                    break;
+                case "shape-hunt":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-8 py-4 text-7xl"></div></div>`;
+                    break;
+                case "counting":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-3 py-4 flex-wrap"></div></div>`;
+                    break;
+                case "animal-tap":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-6 py-4 text-7xl"></div></div>`;
+                    break;
+                case "pattern":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-4 py-4 text-6xl"></div></div>`;
+                    break;
+                case "food-sort":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-5 py-4 text-7xl"></div></div>`;
+                    break;
+                case "body-move":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex justify-center gap-4 py-4"></div></div>`;
+                    break;
+                case "memory":
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="grid grid-cols-4 gap-3 max-w-[280px] mx-auto py-3"></div></div>`;
+                    break;
+                default:
+                    gameHTML = `<div class="text-center mb-3"><div class="game-target mx-auto mb-3">${prompt}</div><div id="game-area" class="flex flex-wrap justify-center gap-4 py-6 bg-[#fff8f0] rounded-3xl"></div></div>`;
+            }
+
+            return `
+                <div class="premium-card p-8">
+                    <div class="section-header mb-4">🎲 ${gameTitle}</div>
+                    <div id="game-instruction" class="text-center text-[#5C4033] mb-2 text-sm">Ketuk target sebanyak mungkin dalam 10 detik!</div>
+                    ${gameHTML}
+                    <div class="text-center mt-2">
+                        <div id="countdown-display" class="countdown hidden mb-1">10</div>
+                        <div class="text-2xl font-bold mb-1">Skor: <span id="game-score">0</span></div>
+                        <button onclick="startVariedGame(this)" class="premium-button px-10 py-4 bg-[#E76F51] text-white rounded-3xl text-lg font-semibold">Mulai Countdown 10 Detik ⏱️</button>
+                        <div id="game-feedback" class="mt-3 text-sm min-h-[20px]"></div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function startVariedGame(btn) {
+            const theme = getCurrentTheme();
+            const area = document.getElementById('game-area');
+            const countdownEl = document.getElementById('countdown-display');
+            const feedback = document.getElementById('game-feedback');
+            const scoreEl = document.getElementById('game-score');
+
+            if (!area || !countdownEl) return;
+
+            gameScore = 0;
+            gameTimeLeft = 10;
+            gameActive = true;
+            scoreEl.textContent = '0';
+            feedback.textContent = '';
+            btn.style.display = 'none';
+            countdownEl.classList.remove('hidden');
+            countdownEl.textContent = '10';
+
+            area.innerHTML = '';
+
+            switch (theme.gameType) {
+                case "feeling-match": renderFeelingMatch(area, theme.emoji); break;
+                case "color-tap": renderColorTap(area); break;
+                case "shape-hunt": renderShapeHunt(area); break;
+                case "counting": renderCountingGame(area); break;
+                case "animal-tap": renderAnimalTap(area); break;
+                case "pattern": renderPatternGame(area); break;
+                case "food-sort": renderFoodSort(area); break;
+                case "body-move": renderBodyMove(area); break;
+                case "memory": renderMemoryGame(area); break;
+                default: renderDefaultEmojiTap(area, theme.emoji);
+            }
+
+            clearInterval(gameInterval);
+            gameInterval = setInterval(() => {
+                gameTimeLeft--;
+                countdownEl.textContent = gameTimeLeft;
+                if (gameTimeLeft <= 0) {
+                    endGame(btn, feedback, countdownEl);
+                }
+            }, 1000);
+        }
+
+        function endGame(btn, feedback, countdownEl) {
+            clearInterval(gameInterval);
+            gameActive = false;
+            countdownEl.textContent = '0';
+            feedback.innerHTML = `<span class="font-semibold">Waktu habis! Skor akhir: ${gameScore} ⭐</span>`;
+            setTimeout(() => {
+                btn.style.display = 'inline-block';
+                btn.textContent = currentLang === 'id' ? 'Main Lagi 🎮' : 'Play Again 🎮';
+                btn.onclick = () => startVariedGame(btn);
+            }, 900);
+            if (gameScore >= 8) setTimeout(() => launchConfetti(), 400);
+        }
+
+        function renderFeelingMatch(area, mainEmoji) {
+            const faces = ["😊", "😢", "😠", "😰"];
+            faces.forEach(face => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = face;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (face === "😊") { gameScore++; document.getElementById('game-score').textContent = gameScore; div.style.transform = 'scale(1.3)'; }
+                    else { div.style.transform = 'scale(0.6)'; }
+                    setTimeout(() => div.style.transform = '', 180);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderColorTap(area) {
+            const colors = [{hex:'#E76F51'}, {hex:'#F4D35E'}, {hex:'#457B9D'}, {hex:'#2A9D8F'}];
+            colors.forEach(c => {
+                const div = document.createElement('div');
+                div.className = 'color-swatch';
+                div.style.background = c.hex;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (c.hex === '#E76F51') { gameScore++; document.getElementById('game-score').textContent = gameScore; }
+                    div.style.transform = 'scale(0.7)';
+                    setTimeout(() => div.style.transform = '', 150);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderShapeHunt(area) {
+            const shapes = ["🔺", "🔵", "⬜", "🟩"];
+            shapes.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = s;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (s === "🔺") { gameScore++; document.getElementById('game-score').textContent = gameScore; }
+                    div.style.transform = 'scale(0.6) rotate(20deg)';
+                    setTimeout(() => div.style.transform = '', 180);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderCountingGame(area) {
+            const groups = [3, 5, 4, 6];
+            groups.forEach((count, idx) => {
+                const container = document.createElement('div');
+                container.className = 'flex flex-col items-center';
+                const label = document.createElement('div');
+                label.className = 'text-xs mb-1';
+                label.textContent = `${count} benda`;
+                const items = document.createElement('div');
+                items.className = 'flex';
+                for (let i = 0; i < count; i++) {
+                    const e = document.createElement('div');
+                    e.textContent = idx % 2 === 0 ? '🍎' : '⭐';
+                    e.style.fontSize = '2.2rem';
+                    items.appendChild(e);
+                }
+                const tap = document.createElement('div');
+                tap.className = 'mt-1 text-sm bg-[#F4D35E] px-3 py-0.5 rounded-full cursor-pointer';
+                tap.textContent = count;
+                tap.onclick = () => {
+                    if (!gameActive) return;
+                    gameScore++;
+                    document.getElementById('game-score').textContent = gameScore;
+                    tap.style.background = '#2A9D8F';
+                    setTimeout(() => { if (tap) tap.style.background = '#F4D35E'; }, 400);
+                };
+                container.appendChild(label);
+                container.appendChild(items);
+                container.appendChild(tap);
+                area.appendChild(container);
+            });
+        }
+
+        function renderAnimalTap(area) {
+            const animals = ["🐕", "🐱", "🐦", "🐢"];
+            animals.forEach(a => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = a;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (a === "🐕") { gameScore++; document.getElementById('game-score').textContent = gameScore; }
+                    div.style.transform = 'scale(0.6)';
+                    setTimeout(() => div.style.transform = '', 180);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderPatternGame(area) {
+            const pattern = ["🔴", "🔵", "🔴", "🔵"];
+            pattern.forEach(p => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = p;
+                area.appendChild(div);
+            });
+            const options = ["🔴", "🔵", "🟢"];
+            options.forEach(o => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = o;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (o === "🔴") { gameScore++; document.getElementById('game-score').textContent = gameScore; }
+                    div.style.transform = 'scale(0.6)';
+                    setTimeout(() => div.style.transform = '', 200);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderFoodSort(area) {
+            const foods = ["🥦", "🍎", "🍪", "🥕"];
+            foods.forEach(f => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = f;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    if (f === "🥦" || f === "🍎" || f === "🥕") { gameScore++; document.getElementById('game-score').textContent = gameScore; }
+                    div.style.transform = 'scale(0.6)';
+                    setTimeout(() => div.style.transform = '', 180);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderBodyMove(area) {
+            const moves = ["Lompat 🏃", "Putar 🔄", "Tangan ✋", "Lompat 🏃"];
+            moves.forEach((m) => {
+                const btn = document.createElement('button');
+                btn.className = 'px-5 py-2 rounded-2xl bg-white border text-lg font-medium';
+                btn.textContent = m;
+                btn.onclick = () => {
+                    if (!gameActive) return;
+                    gameScore++;
+                    document.getElementById('game-score').textContent = gameScore;
+                    btn.style.background = '#A8DADC';
+                };
+                area.appendChild(btn);
+            });
+        }
+
+        function renderMemoryGame(area) {
+            const pairs = ["😊", "😊", "⭐", "⭐"];
+            const shuffled = [...pairs].sort(() => 0.5 - Math.random());
+            let opened = [];
+            shuffled.forEach((item) => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji bg-white border p-2 rounded-xl text-center';
+                div.textContent = '❓';
+                div.dataset.value = item;
+                div.onclick = () => {
+                    if (!gameActive || div.textContent !== '❓') return;
+                    div.textContent = item;
+                    opened.push({el: div, val: item});
+                    if (opened.length === 2) {
+                        if (opened[0].val === opened[1].val) {
+                            gameScore += 2;
+                            document.getElementById('game-score').textContent = gameScore;
+                            opened = [];
+                        } else {
+                            setTimeout(() => {
+                                opened.forEach(o => o.el.textContent = '❓');
+                                opened = [];
+                            }, 700);
+                        }
+                    }
+                };
+                area.appendChild(div);
+            });
+        }
+
+        function renderDefaultEmojiTap(area, emoji) {
+            const items = [emoji, "🌟", "✨", "❤️", emoji];
+            items.forEach(item => {
+                const div = document.createElement('div');
+                div.className = 'mini-game-emoji';
+                div.textContent = item;
+                div.onclick = () => {
+                    if (!gameActive) return;
+                    gameScore++;
+                    document.getElementById('game-score').textContent = gameScore;
+                    div.style.transform = 'scale(0.65) rotate(15deg)';
+                    setTimeout(() => { if (div) div.style.transform = ''; }, 200);
+                };
+                area.appendChild(div);
+            });
+        }
+
+        // ==================== RENDER CURRENT SLIDE ====================
+        function renderCurrentSlide() {
+            const container = document.getElementById('slide-container');
+            const theme = getCurrentTheme();
+            if (!theme) return;
+
+            const totalSlides = 8;
+            const progressPercent = Math.round(((currentSlideIndex + 1) / totalSlides) * 100);
+
+            document.getElementById('progress-bar-container').classList.remove('hidden');
+            document.getElementById('progress-bar').style.width = progressPercent + '%';
+            document.getElementById('slide-progress-text').textContent = `${t('slideLabel')} ${currentSlideIndex + 1}/${totalSlides}`;
+            document.getElementById('slide-progress-percent').textContent = progressPercent + '%';
+
+            let html = `<div class="presentation-slide slide">`;
+
+            if (currentSlideIndex === 0) {
+                html += `
+                    <div class="text-center pt-8">
+                        <div onclick="wiggleEmoji(this)" class="big-emoji mx-auto mb-4 cursor-pointer">${theme.emoji}</div>
+                        <div class="text-sm tracking-[3px] font-semibold text-[#E76F51]">DAY ${theme.day} • WEEK ${theme.week}</div>
+                        <h1 class="heading-serif text-6xl font-bold tracking-tighter mt-2 mb-4">${theme.title[currentLang]}</h1>
+                        <p class="text-2xl text-[#5C4033] max-w-md mx-auto">${currentLang === 'id' ? 'Ayo kita mulai petualangan seru hari ini! ✨' : 'Let’s start today’s fun adventure! ✨'}</p>
+                        <div class="mt-8 flex justify-center gap-4 text-5xl">
+                            <div onclick="wiggleEmoji(this)" class="cursor-pointer">${theme.emoji}</div>
+                            <div onclick="wiggleEmoji(this)" class="cursor-pointer">✨</div>
+                        </div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 1) {
+                const prep = theme.prepItems[currentLang] || theme.prepItems.id;
+                let prepList = '';
+                prep.forEach((item, i) => {
+                    prepList += `<div class="prep-item flex items-center gap-3 p-3"><div class="step-number">${i+1}</div><span class="text-lg">${item}</span></div>`;
+                });
+                html += `
+                    <div class="premium-card p-8">
+                        <div class="section-header mb-6 flex items-center gap-3">
+                            <span class="text-3xl">🧰</span>
+                            <span>${t('prepareTitle')}</span>
+                        </div>
+                        <p class="mb-6 text-lg">${t('prepareIntro')}</p>
+                        <div class="space-y-3 mb-6">${prepList}</div>
+                        <div class="space-y-3" id="prep-checklist">
+                            <label class="interactive-check flex items-center gap-3 p-3 rounded-2xl cursor-pointer border border-[#f3e8d8]">
+                                <input type="checkbox" class="w-5 h-5 accent-[#E76F51]" onchange="saveCheck(this)">
+                                <span class="text-lg">${t('prepareReady')}</span>
+                            </label>
+                            <label class="interactive-check flex items-center gap-3 p-3 rounded-2xl cursor-pointer border border-[#f3e8d8]">
+                                <input type="checkbox" class="w-5 h-5 accent-[#E76F51]" onchange="saveCheck(this)">
+                                <span class="text-lg">${t('preparePlace')}</span>
+                            </label>
+                            <label class="interactive-check flex items-center gap-3 p-3 rounded-2xl cursor-pointer border border-[#f3e8d8]">
+                                <input type="checkbox" class="w-5 h-5 accent-[#E76F51]" onchange="saveCheck(this)">
+                                <span class="text-lg">${t('prepareTime')}</span>
+                            </label>
+                        </div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 2) {
+                // Story slide with THEME-SPECIFIC conversation starter
+                const starter = theme.conversationStarter ? theme.conversationStarter[currentLang] : "Ceritakan padaku!";
+                html += `
+                    <div class="premium-card p-8">
+                        <div class="section-header mb-5 flex items-center gap-3">
+                            <span class="text-4xl">${theme.emoji}</span>
+                            <span>📖 ${currentLang === 'id' ? 'Cerita Pengantar' : 'Story Introduction'}</span>
+                        </div>
+                        <div class="story-text">${theme.story[currentLang]}</div>
+                        <div class="mt-6 conversation-starter text-[#3D3D3D]">
+                            <strong>${t('conversation')}</strong> ${starter}
+                        </div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 3) {
+                const steps = theme.activitySteps[currentLang] || theme.activitySteps.id;
+                let stepsHTML = '';
+                steps.forEach((step, i) => {
+                    stepsHTML += `<div class="flex gap-4 activity-step"><div class="step-number">${i+1}</div><div>${step}</div></div>`;
+                });
+                html += `
+                    <div class="premium-card p-8">
+                        <div class="section-header mb-6">${t('activityTitle')}</div>
+                        <div class="space-y-3 text-lg">${stepsHTML}</div>
+                        <div class="mt-7">
+                            <div class="text-sm font-semibold text-[#5C4033] mb-2">${t('skillTitle')}</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="skill-badge bg-[#F4D35E] text-[#3D3D3D]">🧠 Executive Function</span>
+                                <span class="skill-badge bg-[#A8DADC] text-[#2C3E50]">💬 Communication</span>
+                                <span class="skill-badge bg-[#E76F51] text-white">❤️ Emotional Regulation</span>
+                            </div>
+                        </div>
+                        <div class="mt-5 fun-prompt">
+                            <div class="font-semibold mb-1">${t('whyMatters')}</div>
+                            <div class="text-sm">Aktivitas ini membantu otak anak membangun koneksi penting untuk fokus, empati, dan mengatur perasaan.</div>
+                        </div>
+                        <div class="mt-6 fun-prompt text-center">
+                            <strong>${t('activityTip')}</strong>
+                        </div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 4) {
+                html += renderGameSlide(theme);
+            } else if (currentSlideIndex === 5) {
+                html += `
+                    <div class="premium-card p-8">
+                        <div class="section-header mb-5">💡 ${t('tipsTitle')}</div>
+                        <div class="fun-prompt">${theme.tips[currentLang]}</div>
+                        <div class="mt-4 text-xs text-[#5C4033]">Tips ini berdasarkan Child Psychology &amp; Early Childhood Education.</div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 6) {
+                html += `
+                    <div class="premium-card p-8">
+                        <div class="section-header mb-4">📅 ${t('challengeTitle')}</div>
+                        <p class="mb-4 text-lg">${theme.challenge[currentLang]}</p>
+                        <div class="mt-3 text-sm">${t('challengeNote')}</div>
+                    </div>
+                `;
+            } else if (currentSlideIndex === 7) {
+                const badgeCount = completedDays.length + (completedDays.includes(currentDay) ? 0 : 1);
+                html += `
+                    <div class="text-center py-12">
+                        <div class="flex justify-center gap-3 mb-6 text-7xl">
+                            <div onclick="wiggleEmoji(this)" class="cursor-pointer">🌟</div>
+                            <div onclick="wiggleEmoji(this)" class="cursor-pointer">${theme.emoji}</div>
+                            <div onclick="wiggleEmoji(this)" class="cursor-pointer">🎉</div>
+                        </div>
+                        <h2 class="heading-serif text-5xl font-bold tracking-tight mb-3">${t('finishTitle')}</h2>
+                        <p class="text-2xl text-[#5C4033]">${currentLang === 'id' ? 'Kamu telah menyelesaikan' : 'You completed'} <strong>${currentLang === 'id' ? 'Hari' : 'Day'} ${theme.day}</strong></p>
+                        <div class="my-8 flex justify-center">
+                            <div class="celebration-badge text-lg">
+                                ${t('finishBadge')} • ${currentLang === 'id' ? 'Badge' : 'Badge'} ${badgeCount}/30
+                            </div>
+                        </div>
+                        <button onclick="completeDayAndNext()" class="premium-button px-12 py-5 bg-[#2C3E50] text-white text-xl font-semibold rounded-3xl">${t('finishBtn')} ${theme.day + 1}</button>
+                    </div>
+                `;
+            }
+
+            html += `</div>`;
+            container.innerHTML = html;
+
+            document.getElementById('prev-btn').disabled = currentSlideIndex === 0;
+            document.getElementById('next-btn').style.display = (currentSlideIndex === totalSlides - 1) ? 'none' : 'flex';
+        }
+
+        function nextSlide() {
+            const totalSlides = 8;
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                renderCurrentSlide();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                renderCurrentSlide();
+            }
+        }
+
+        function completeDayAndNext() {
+            if (!completedDays.includes(currentDay)) {
+                completedDays.push(currentDay);
+                localStorage.setItem('completedDays', JSON.stringify(completedDays));
+            }
+            launchConfetti();
+            setTimeout(() => {
+                if (currentDay < 30) {
+                    startPresentation(currentDay + 1);
+                } else {
+                    alert(currentLang === 'id' ? "Luar biasa! Kamu sudah menyelesaikan semua 30 hari!" : "Amazing! You completed all 30 days!");
+                    showDashboard();
+                }
+            }, 1100);
+        }
+
+        function launchConfetti() {
+            const colors = ['#F4D35E', '#E76F51', '#457B9D', '#A8DADC', '#F4A261'];
+            for (let i = 0; i < 280; i++) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.style.position = 'fixed';
+                    c.style.left = Math.random() * window.innerWidth + 'px';
+                    c.style.top = '-20px';
+                    c.style.width = '9px';
+                    c.style.height = '9px';
+                    c.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    c.style.borderRadius = '50%';
+                    c.style.zIndex = '999';
+                    document.body.appendChild(c);
+                    c.animate([
+                        { transform: 'translateY(0) rotate(0deg)' },
+                        { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 720}deg)` }
+                    ], {
+                        duration: 2300 + Math.random() * 900,
+                        easing: 'ease-out'
+                    }).onfinish = () => c.remove();
+                }, i * 1.2);
+            }
+        }
+
+        function wiggleEmoji(el) {
+            el.classList.add('wiggle');
+            setTimeout(() => el.classList.remove('wiggle'), 700);
+        }
+
+        function saveCheck(checkbox) {
+            const checks = document.querySelectorAll('#prep-checklist input');
+            const allChecked = [...checks].every(c => c.checked);
+            if (allChecked) {
+                setTimeout(() => {
+                    const c = document.createElement('div');
+                    c.style.cssText = 'position:fixed;left:50%;top:35%;font-size:2rem;pointer-events:none;';
+                    c.textContent = '✨';
+                    document.body.appendChild(c);
+                    setTimeout(() => c.remove(), 900);
+                }, 300);
+            }
+        }
+
+        function renderDashboard() {
+            const grid = document.getElementById('days-grid');
+            grid.innerHTML = '';
+            const streak = Math.min(completedDays.length, 30);
+            document.getElementById('streak-count').textContent = streak;
+            document.getElementById('dashboard-title').textContent = t('dashboardTitle');
+            document.getElementById('dashboard-subtitle').textContent = t('dashboardSubtitle');
+            document.getElementById('streak-label').textContent = t('streak');
+
+            let currentWeek = 0;
+            richThemes.forEach(theme => {
+                if (theme.week !== currentWeek) {
+                    currentWeek = theme.week;
+                    const weekHeader = document.createElement('div');
+                    weekHeader.className = `flex items-center gap-3 mt-4 mb-2`;
+                    weekHeader.innerHTML = `
+                        <div class="px-4 py-1 rounded-3xl text-sm font-semibold bg-white border border-[#f3e8d8]">MINGGU ${currentWeek}</div>
+                        <div class="flex-1 h-px bg-[#f3e8d8]"></div>
+                    `;
+                    grid.appendChild(weekHeader);
+                }
+
+                const isDone = completedDays.includes(theme.day);
+                const card = document.createElement('div');
+                card.className = `premium-card p-4 sm:p-5 cursor-pointer transition-all hover:-translate-y-1 flex gap-4 week-accent week-${theme.week} ${isDone ? 'opacity-90' : ''}`;
+                const dayTitle = theme.title[currentLang];
+                card.innerHTML = `
+                    <div class="text-6xl flex-shrink-0">${theme.emoji}</div>
+                    <div class="min-w-0 flex-1">
+                        <div class="text-xs font-bold text-[#5C4033]">DAY ${theme.day}</div>
+                        <div class="font-bold text-xl leading-tight tracking-tight">${dayTitle}</div>
+                        ${isDone ? '<div class="mt-2 text-xs px-2 py-0.5 bg-green-100 text-green-700 inline-block rounded">SELESAI ✓</div>' : ''}
+                    </div>
+                `;
+                card.onclick = () => startPresentation(theme.day);
+                grid.appendChild(card);
+            });
+        }
+
+        function showDashboard() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('adventure-player').classList.add('hidden');
+            document.getElementById('dashboard').classList.remove('hidden');
+            document.getElementById('progress-bar-container').classList.add('hidden');
+            renderDashboard();
+        }
+
+        function startFirstAdventure() {
+            document.getElementById('welcome-screen').classList.add('hidden');
+            startPresentation(1);
+        }
+
+        function startPresentation(day) {
+            currentDay = day;
+            currentSlideIndex = 0;
+            document.getElementById('welcome-screen').classList.add('hidden');
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('adventure-player').classList.remove('hidden');
+            renderCurrentSlide();
+        }
+
+        function initialize() {
+            document.getElementById('dashboard').classList.add('hidden');
+            document.getElementById('welcome-screen').classList.remove('hidden');
+            updateLanguageUI();
+            updateWelcomeTexts();
+            document.getElementById('progress-bar-container').classList.add('hidden');
+
+            document.addEventListener('keydown', function(e) {
+                if (document.getElementById('adventure-player').classList.contains('hidden')) return;
+                if (e.key === "ArrowRight") nextSlide();
+                if (e.key === "ArrowLeft") prevSlide();
+                if (e.key === "Escape") {
+                    document.getElementById('adventure-player').classList.add('hidden');
+                    showDashboard();
+                }
+            });
+        }
+
+        window.onload = initialize;
+    </script>
+</body>
+</html>
