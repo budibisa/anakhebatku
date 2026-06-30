@@ -88,12 +88,6 @@
             border-bottom: 1px solid #f3e8d8;
         }
 
-        .lang-btn { padding: 3px 10px; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; transition: all 0.2s; }
-        @media (min-width: 640px) {
-            .lang-btn { padding: 4px 12px; font-size: 0.8rem; }
-        }
-
-        .lang-btn.active { background: #F4D35E; color: #3D3D3D; }
         .lang-btn:not(.active) { background: #f3e8d8; color: #5C4033; }
 
         .fun-prompt { background: #fff8f0; border: 2px dashed #F4D35E; border-radius: 16px; padding: 12px 14px; }
@@ -231,19 +225,19 @@
     <div class="fixed-header">
         <div class="header-inner flex items-center justify-between w-full px-3 sm:px-6">
             <div class="flex items-center gap-x-2 sm:gap-x-3 min-w-0">
-                <div class="header-logo bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center flex-shrink-0 w-6 h-6 sm:w-8 sm:h-8">
+                <div class="header-logo bg-gradient-to-br from-[#F4D35E] via-[#E76F51] to-[#457B9D] rounded-2xl flex items-center justify-center flex-shrink-0 w-[26px] h-[26px] sm:w-9 sm:h-9">
                     <span class="text-white text-lg">🌱</span>
                 </div>
-                <div class="header-title tracking-tight text-[#2C3E50] text-sm sm:text-base md:text-lg font-bold whitespace-nowrap overflow-hidden text-ellipsis max-w-[110px] sm:max-w-none">Petualangan Anak Hebat</div>
+                <div class="header-title tracking-tight text-[#2C3E50] text-[0.82rem] sm:text-base md:text-lg font-bold whitespace-nowrap overflow-hidden text-ellipsis max-w-[110px] sm:max-w-none">Petualangan Anak Hebat</div>
             </div>
             
             <!-- Language Switcher -->
             <div class="lang-switcher flex-shrink-0">
-                <button onclick="setLanguage('id')" id="lang-id" class="lang-btn   active">🇮🇩 ID</button>
-                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn  ">🇬🇧 EN</button>
+                <button onclick="setLanguage('id')" id="lang-id" class="lang-btn px-2 py-0.5 text-[0.58rem] active">🇮🇩 ID</button>
+                <button onclick="setLanguage('en')" id="lang-en" class="lang-btn px-2 py-0.5 text-[0.58rem]">🇬🇧 EN</button>
             </div>
             
-            <div onclick="showDashboard()" class="header-home cursor-pointer flex-shrink-0 text-xs sm:text-sm">
+            <div onclick="showDashboard()" class="header-home cursor-pointer flex-shrink-0 text-[0.82rem] sm:text-sm">
                 <i class="fa-solid fa-home"></i>
                 <span class="home-text hidden sm:inline" id="home-text">Dashboard</span>
             </div>
@@ -1519,20 +1513,8 @@
     flex-shrink: 0;
 }
 
-.lang-btn {
-    padding: 1px 5px !important;
-    font-size: 0.52rem !important;
-    font-weight: 600;
-    border-radius: 9999px;
-}
 
 @media (min-width: 640px) {
-    .lang-btn { padding: 2px 8px !important; font-size: 0.68rem !important; }
-}
-
-.lang-btn.active { background: #F4D35E; color: #3D3D3D; }
-
-.header-home {
     display: flex;
     align-items: center;
     gap: 3px;
@@ -1562,4 +1544,78 @@
 
 /* Title dynamic */
 #welcome-title { font-size: clamp(1.45rem, 6.5vw, 2.8rem) !important; line-height: 1.1 !important; }
+</style>
+
+<style id="proper-header-sizes">
+/* ===== PROPER HEADER SIZES (Balanced) ===== */
+.fixed-header {
+    height: 48px !important;
+}
+@media (min-width: 640px) {
+    .fixed-header { height: 64px !important; }
+}
+
+.header-inner {
+    padding: 0 8px !important;
+}
+@media (min-width: 640px) {
+    .header-inner { padding: 0 20px !important; }
+}
+
+/* Logo - medium prominent */
+.header-logo {
+    width: 26px !important;
+    height: 26px !important;
+    font-size: 0.95rem !important;
+}
+@media (min-width: 640px) {
+    .header-logo {
+        width: 36px !important;
+        height: 36px !important;
+        font-size: 1.35rem !important;
+    }
+}
+
+/* Title - readable but not dominant */
+.header-title {
+    font-size: 0.82rem !important;
+    font-weight: 700 !important;
+    max-width: 100px !important;
+}
+@media (min-width: 640px) {
+    .header-title {
+        font-size: 1.08rem !important;
+        max-width: none !important;
+    }
+}
+
+/* Language buttons - smallest (secondary action) */
+.lang-btn {
+    padding: 2px 6px !important;
+    font-size: 0.58rem !important;
+    font-weight: 600 !important;
+}
+@media (min-width: 640px) {
+    .lang-btn {
+        padding: 3px 9px !important;
+        font-size: 0.72rem !important;
+    }
+}
+
+/* Home button - icon focused, good tap size */
+.header-home {
+    padding: 3px 6px !important;
+    font-size: 0.82rem !important;
+}
+@media (min-width: 640px) {
+    .header-home {
+        padding: 5px 11px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+.header-home .home-text { display: none; }
+@media (min-width: 640px) {
+    .header-home .home-text { display: inline; }
+}
 </style>
