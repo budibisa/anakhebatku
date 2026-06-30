@@ -242,11 +242,10 @@
                 <span class="home-text hidden sm:inline" id="home-text">Dashboard</span>
             </div>
         </div>
-        <div id="progress-bar-container" class="hidden max-w-[920px] mx-auto px-6 pb-2">
+        <div id="progress-bar-container" class="hidden max-w-[920px] mx-auto px-6 pb-1">
             <div class="flex items-center gap-3 text-xs text-[#5C4033]">
-                <div id="slide-progress-text" class="font-semibold w-16"></div>
+                
                 <div class="flex-1 progress-container"><div id="progress-bar" class="progress-bar" style="width: 0%"></div></div>
-                <div id="slide-progress-percent" class="font-semibold w-10 text-right"></div>
             </div>
         </div>
     </div>
@@ -286,7 +285,7 @@
     <div id="adventure-player" class="hidden bg-[#FDF8F3]">
         <div id="slide-container" class="max-w-[920px] mx-auto"></div>
         <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-[#f3e8d8] py-3 z-50">
-            <div class="max-w-[920px] mx-auto px-6 flex items-center justify-between">
+            <div class="max-w-[920px] mx-auto px-6"><div class="text-center text-xs text-[#5C4033] mb-1 font-medium"><span id="bottom-slide-text" class="text-xs font-medium text-[#5C4033]"></span></div><div class="flex items-center justify-between">
                 <button onclick="prevSlide()" id="prev-btn" class="nav-button text-2xl text-[#5C4033]"><i class="fa-solid fa-arrow-left"></i></button>
                 <div class="flex items-center gap-2" id="slide-dots"></div>
                 <button onclick="nextSlide()" id="next-btn" class="nav-button text-2xl text-[#5C4033]"><i class="fa-solid fa-arrow-right"></i></button>
@@ -1148,8 +1147,6 @@
 
             document.getElementById('progress-bar-container').classList.remove('hidden');
             document.getElementById('progress-bar').style.width = progressPercent + '%';
-            document.getElementById('slide-progress-text').textContent = `${t('slideLabel')} ${currentSlideIndex + 1}/${totalSlides}`;
-            document.getElementById('slide-progress-percent').textContent = progressPercent + '%';
 
             let html = `<div class="presentation-slide slide">`;
 
