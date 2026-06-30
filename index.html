@@ -1519,15 +1519,22 @@
 
         function renderDashboard() {
             const grid = document.getElementById('days-grid');
+            if (!grid) return;
             grid.innerHTML = '';
-            const streak = Math.min(completedDays.length, 30);
-            document.getElementById('streak-count').textContent = streak;
-            document.getElementById('dashboard-title').textContent = t('dashboardTitle');
-            document.getElementById('dashboard-subtitle').textContent = t('dashboardSubtitle');
-            document.getElementById('streak-label').textContent = t('streak');
+            const streak = (typeof completedDays !== 'undefined') ? Math.min(completedDays.length, 40) : 0;
+            const streakEl = document.getElementById('streak-count');
+            if (streakEl) streakEl.textContent = streak;
+            
+            const titleEl = document.getElementById('dashboard-title');
+            const subEl = document.getElementById('dashboard-subtitle');
+            const labelEl = document.getElementById('streak-label');
+            if (titleEl) titleEl.textContent = (typeof t === 'function') ? t('dashboardTitle') : '60 Petualangan';
+            if (subEl) subEl.textContent = (typeof t === 'function') ? t('dashboardSubtitle') : 'Setiap hari adalah petualangan baru';
+            if (labelEl) labelEl.textContent = (typeof t === 'function') ? t('streak') : 'STREAK';
 
             let currentWeek = 0;
-            richThemes.forEach(theme => {
+            const themes = (typeof richThemes !== 'undefined' && richThemes.length > 0) ? richThemes : [];
+            themes.forEach(theme => {
                 if (theme.week !== currentWeek) {
                     currentWeek = theme.week;
                     const weekHeader = document.createElement('div');
@@ -1557,11 +1564,32 @@
         }
 
         function showDashboard() {
-            document.getElementById('welcome-screen').classList.add('hidden');
-            document.getElementById('adventure-player').classList.add('hidden');
-            document.getElementById('dashboard').classList.remove('hidden');
-            document.getElementById('progress-bar-container').classList.add('hidden');
-            renderDashboard();
+            try {
+                console.log('showDashboard called');
+                const welcome = document.getElementById('welcome-screen');
+                const player = document.getElementById('adventure-player');
+                const dash = document.getElementById('dashboard');
+                const prog = document.getElementById('progress-bar-container');
+                
+                if (welcome) welcome.classList.add('hidden');
+                if (player) player.classList.add('hidden');
+                if (dash) {
+                    dash.classList.remove('hidden');
+                    dash.style.display = 'block';
+                }
+                if (prog) prog.classList.add('hidden');
+                
+                if (typeof renderDashboard === 'function') {
+                    renderDashboard();
+                } else {
+                    // Fallback simple list
+                    const grid = document.getElementById('days-grid');
+                    if (grid) grid.innerHTML = '<div style="padding:20px;text-align:center;color:#E76F51;font-size:18px;">Dashboard loading... (40 hari siap)</div>';
+                }
+            } catch(e) {
+                console.error('showDashboard error:', e);
+                alert('Klik tombol lagi atau refresh halaman. Versi 40 hari sudah aktif.');
+            }
         }
 
         function startFirstAdventure() {
