@@ -1452,35 +1452,114 @@
 
 <style>
 
-<style id="fluid-responsive">
-/* Fluid & Dynamic for all devices */
-.fixed-header { height: 48px; }
-@media (min-width: 640px) { .fixed-header { height: 56px; } }
 
-.header-inner { padding: 0 10px; }
-@media (min-width: 640px) { .header-inner { padding: 0 24px; } }
+<style id="clean-mobile-header">
+/* ===== CLEAN DYNAMIC HEADER - FIT ALL DEVICES ===== */
+.fixed-header {
+    height: 48px !important;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(253, 248, 243, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #f3e8d8;
+}
 
-.header-logo { width: 24px; height: 24px; font-size: .85rem; }
-@media (min-width: 640px) { .header-logo { width: 34px; height: 34px; font-size: 1.2rem; } }
+@media (min-width: 640px) {
+    .fixed-header { height: 64px !important; }
+}
 
-.header-title { font-size: .78rem; }
-@media (min-width: 640px) { .header-title { font-size: 1rem; } }
+.header-inner {
+    max-width: 920px;
+    margin: 0 auto;
+    height: 100%;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 6px;
+}
 
-.lang-btn { padding: 1px 5px; font-size: .52rem; }
-@media (min-width: 640px) { .lang-btn { padding: 2px 8px; font-size: .68rem; } }
+@media (min-width: 640px) {
+    .header-inner { padding: 0 20px; gap: 12px; }
+}
 
-.header-home { padding: 3px 6px; font-size: .65rem; }
-@media (min-width: 640px) { .header-home { padding: 5px 11px; font-size: .82rem; } }
+.header-logo {
+    width: 24px !important;
+    height: 24px !important;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
 
-#welcome-screen { padding-top: 56px; }
-@media (min-width: 640px) {#welcome-screen { padding-top: 78px; } }
+@media (min-width: 640px) {
+    .header-logo { width: 34px !important; height: 34px !important; font-size: 1.25rem; }
+}
 
-#welcome-title { font-size: clamp(1.6rem, 7vw, 3.2rem) !important; line-height: 1.12 !important; }
-@media (min-width: 640px) { #welcome-title { font-size: clamp(2rem, 4.5vw, 3.6rem) !important; } }
+.header-title {
+    font-size: 0.78rem !important;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 95px;
+}
 
-#welcome-subtitle { font-size: clamp(.85rem, 3.8vw, 1.2rem); }
+@media (min-width: 640px) {
+    .header-title { font-size: 1.05rem !important; max-width: none; }
+}
+
+.lang-switcher {
+    display: flex;
+    background: white;
+    border: 1px solid #f3e8d8;
+    border-radius: 9999px;
+    padding: 1px;
+    flex-shrink: 0;
+}
+
+.lang-btn {
+    padding: 1px 5px !important;
+    font-size: 0.52rem !important;
+    font-weight: 600;
+    border-radius: 9999px;
+}
+
+@media (min-width: 640px) {
+    .lang-btn { padding: 2px 8px !important; font-size: 0.68rem !important; }
+}
+
+.lang-btn.active { background: #F4D35E; color: #3D3D3D; }
+
+.header-home {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 2px 5px !important;
+    border: 1px solid #f3e8d8;
+    border-radius: 9999px;
+    font-size: 0.65rem;
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .header-home { padding: 4px 10px !important; font-size: 0.82rem; }
+}
+
+.header-home .home-text { display: none; }
+
+@media (min-width: 640px) {
+    .header-home .home-text { display: inline; }
+}
+
+/* Content padding to avoid header overlap */
+#welcome-screen { padding-top: 56px !important; }
+@media (min-width: 640px) { #welcome-screen { padding-top: 72px !important; } }
 
 .slide { padding-top: 52px !important; }
-@media (min-width: 640px) { .slide { padding-top: 70px !important; } }
+@media (min-width: 640px) { .slide { padding-top: 68px !important; } }
+
+/* Title dynamic */
+#welcome-title { font-size: clamp(1.45rem, 6.5vw, 2.8rem) !important; line-height: 1.1 !important; }
 </style>
-<style id="last-mobile-fix"> @media (max-width:639px){.fixed-header{height:42px!important}.header-inner{padding:0 6px!important;gap:3px!important}.header-logo{width:20px!important;height:20px!important}.header-title{font-size:.65rem!important;max-width:70px!important}.lang-btn{padding:0 3px!important;font-size:.48rem!important}.header-home{padding:1px 4px!important}#welcome-screen{padding-top:48px!important;padding-left:8px!important;padding-right:8px!important}#welcome-title{font-size:1.32rem!important;line-height:1.02!important;margin-bottom:4px!important}#welcome-subtitle{font-size:.78rem!important}#btn-all-days,#btn-start{font-size:.8rem!important;padding:8px 12px!important}.slide{padding-top:44px!important}}</style>
