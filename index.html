@@ -297,6 +297,47 @@
         let currentLang = localStorage.getItem('lang') || 'id';
         let completedDays = JSON.parse(localStorage.getItem('completedDays') || '[]');
         let currentDay = 1;
+
+        // SCALEV STOREFRONT API
+        const SCALEV_STORE_ID = "YOUR_STORE_ID_HERE"; // Ganti dengan Store ID dari Scalev dashboard
+        const SCALEV_API = `https://api.scalev.com/v3/stores/${SCALEV_STORE_ID}`;
+        const PRODUCT_PRICE = 299000;
+        const PRODUCT_NAME = "30 Hari Petualangan Anak Hebat - Akses Penuh";
+
+        async function scalevRequest(path, method = "GET", body = null) {
+            const url = `${SCALEV_API}${path}`;
+            const headers = { "Content-Type": "application/json" };
+            const guestToken = localStorage.getItem("scalev_guest_token");
+            if (guestToken) headers["X-Scalev-Guest-Token"] = guestToken;
+
+            const opts = { method, headers };
+            if (body) opts.body = JSON.stringify(body);
+
+            const res = await fetch(url, opts);
+            if (!res.ok) {
+                const text = await res.text();
+                throw new Error("Scalev error: " + res.status + " " + text);
+            }
+            const newToken = res.headers.get("X-Scalev-Guest-Token");
+            if (newToken) localStorage.setItem("scalev_guest_token", newToken);
+            return res.json();
+        }
+
+        async function createGuestOrder(email) {
+            // Direct order creation (simple for digital product)
+            const orderData = {
+                items: [{
+                    name: PRODUCT_NAME,
+                    price: PRODUCT_PRICE,
+                    quantity: 1
+                }],
+                customer: { email: email },
+                source: "storefront"
+            };
+            // Try direct checkout
+            const order = await scalevRequest("/public/checkout", "POST", orderData);
+            return order;
+        }
         let currentSlideIndex = 0;
         let currentGame = null;
 
@@ -1449,6 +1490,60 @@
             renderCurrentSlide();
         }
 
+        
+        function showCheckoutModal() {
+            document.getElementById("checkout-modal").classList.remove("hidden");
+            document.getElementById("checkout-status").classList.add("hidden");
+            // prefill email if known
+            const saved = localStorage.getItem("user_email");
+            if (saved) document.getElementById("checkout-email").value = saved;
+        }
+
+        function hideCheckoutModal() {
+            document.getElementById("checkout-modal").classList.add("hidden");
+        }
+
+        async function startScalevCheckout() {
+            const emailInput = document.getElementById("checkout-email");
+            const status = document.getElementById("checkout-status");
+            const email = emailInput.value.trim();
+
+            if (!email || !email.includes("@")) {
+                status.textContent = "Masukkan email yang valid dulu ya.";
+                status.classList.remove("hidden");
+                return;
+            }
+
+            localStorage.setItem("user_email", email);
+            status.textContent = "Menghubungkan ke Scalev...";
+            status.classList.remove("hidden");
+
+            try {
+                // Create order via Scalev Storefront API
+                const order = await createGuestOrder(email);
+
+                status.innerHTML = `✅ Order berhasil dibuat!<br>Order ID: ${order.id || "pending"}<br><br>Silakan selesaikan pembayaran di halaman berikutnya atau cek email kamu.`;
+
+                // Optional: open Scalev payment page if returned
+                if (order.payment_url || order.checkout_url) {
+                    setTimeout(() => {
+                        window.open(order.payment_url || order.checkout_url, "_blank");
+                    }, 1200);
+                } else {
+                    // Fallback: tell user to check Scalev dashboard or email
+                    setTimeout(() => {
+                        alert("Pembayaran sedang diproses. Cek email kamu untuk instruksi pembayaran dan akses file.");
+                        hideCheckoutModal();
+                    }, 2500);
+                }
+
+            } catch (err) {
+                console.error(err);
+                status.textContent = "Gagal menghubungkan ke Scalev. Pastikan STORE_ID sudah benar dan coba lagi. Error: " + err.message;
+            }
+        }
+
+
         function initialize() {
             document.getElementById('dashboard').classList.add('hidden');
             document.getElementById('welcome-screen').classList.remove('hidden');
@@ -1469,6 +1564,45 @@
 
         window.onload = initialize;
     </script>
+
+    <!-- SCALEV CHECKOUT MODAL (added for seamless checkout) -->
+    <div id="checkout-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl max-w-md w-full p-6 shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <div>
+                    <div class="text-sm text-[#E76F51] font-semibold">AKSES PREMIUM</div>
+                    <div class="text-2xl font-bold">30 Hari Petualangan Anak Hebat</div>
+                </div>
+                <button onclick="hideCheckoutModal()" class="text-2xl leading-none">×</button>
+            </div>
+
+            <div class="bg-[#FFF9F0] rounded-2xl p-4 mb-5">
+                <div class="flex justify-between">
+                    <div>1× Akses Penuh (File + Updates)</div>
+                    <div class="font-semibold">Rp299.000</div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-1">Email kamu (untuk kirim file & akses)</label>
+                <input id="checkout-email" type="email" placeholder="nama@email.com" 
+                       class="w-full border border-[#f3e8d8] rounded-2xl px-4 py-3 text-lg">
+            </div>
+
+            <div id="checkout-status" class="hidden mb-4 text-sm p-3 rounded-2xl bg-yellow-50 text-yellow-700"></div>
+
+            <button onclick="startScalevCheckout()" 
+                    class="w-full premium-button py-4 bg-[#E76F51] text-white text-lg font-semibold rounded-3xl">
+                Bayar Sekarang • Tanpa Keluar Halaman
+            </button>
+
+            <div class="text-center text-xs text-[#5C4033] mt-4">
+                Pembayaran via Scalev (QRIS / VA / E-Wallet / Transfer)<br>
+                File dikirim otomatis setelah pembayaran berhasil
+            </div>
+        </div>
+    </div>
+
 </body>
 </html>
 <style>
