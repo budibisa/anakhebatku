@@ -255,12 +255,12 @@
         <div class="text-center">
             <div class="inline-flex items-center gap-2 bg-white px-6 py-2 rounded-3xl border border-[#f3e8d8] shadow-sm mb-8">
                 <span class="text-[#E76F51]">★</span>
-                <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-[0.65rem] sm:text-sm">30 HARI PRESENTASI PREMIUM • FULL DETAIL</span>
+                <span id="welcome-badge" class="font-semibold tracking-[1.5px] text-[0.65rem] sm:text-sm">60 HARI PETUALANGAN PREMIUM • FULL DETAIL</span>
             </div>
-            <h1 id="welcome-title" class="heading-serif text-[1.4rem] sm:text-[1.85rem] md:text-3xl leading-[1.05] tracking-[-1px] font-bold text-[#2C3E50] mb-2 sm:mb-4" style="font-size: clamp(1.35rem, 6.5vw, 2.8rem) !important;">30 Hari Petualangan Yang Menyenangkan</h1>
+            <h1 id="welcome-title" class="heading-serif text-[1.4rem] sm:text-[1.85rem] md:text-3xl leading-[1.05] tracking-[-1px] font-bold text-[#2C3E50] mb-2 sm:mb-4" style="font-size: clamp(1.35rem, 6.5vw, 2.8rem) !important;">60 Hari Petualangan Anak Hebat</h1>
             <p id="welcome-subtitle" class="max-w-lg mx-auto text-[0.95rem] sm:text-xl text-[#5C4033] mb-6 sm:mb-8 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#E76F51] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
+                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#E76F51] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 60 Hari</button>
                 <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-5 py-3.5 sm:px-10 sm:py-5 bg-white border-2 border-[#F4D35E] text-[#2C3E50] hover:bg-[#FFF9F0] text-base sm:text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
             </div>
         </div>
@@ -270,7 +270,7 @@
     <div id="dashboard" class="hidden max-w-[920px] mx-auto px-6 pt-16 sm:pt-24 pb-8 sm:pb-10">
         <div class="mb-8 flex items-end justify-between">
             <div>
-                <h2 id="dashboard-title" class="heading-serif text-5xl font-bold tracking-tight text-[#2C3E50]">30 Petualangan Presentasi</h2>
+                <h2 id="dashboard-title" class="heading-serif text-5xl font-bold tracking-tight text-[#2C3E50]">60 Petualangan Presentasi</h2>
                 <p id="dashboard-subtitle" class="text-[#5C4033] text-lg mt-1">Setiap hari adalah presentasi slide yang indah &amp; mendalam</p>
             </div>
             <div class="text-right">
@@ -302,7 +302,7 @@
         const SCALEV_STORE_ID = "YOUR_STORE_ID_HERE"; // Ganti dengan Store ID dari Scalev dashboard
         const SCALEV_API = `https://api.scalev.com/v3/stores/${SCALEV_STORE_ID}`;
         const PRODUCT_PRICE = 299000;
-        const PRODUCT_NAME = "30 Hari Petualangan Anak Hebat - Akses Penuh";
+        const PRODUCT_NAME = "60 Hari Petualangan Anak Hebat - Akses Penuh";
 
         async function scalevRequest(path, method = "GET", body = null) {
             const url = `${SCALEV_API}${path}`;
@@ -343,11 +343,11 @@
 
         const uiTexts = {
             id: {
-                home: "Dashboard", welcomeBadge: "30 HARI PRESENTASI PREMIUM • FULL DETAIL",
-                welcomeTitle: "30 Hari Petualangan Yang Menyenangkan",
+                home: "Dashboard", welcomeBadge: "60 HARI PETUALANGAN PREMIUM • FULL DETAIL",
+                welcomeTitle: "60 Hari Petualangan Anak Hebat",
                 welcomeSubtitle: "Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.",
-                btnAllDays: "Lihat Semua 30 Hari", btnStart: "Mulai dari Hari 1",
-                dashboardTitle: "30 Petualangan Presentasi", dashboardSubtitle: "Setiap hari adalah presentasi slide yang indah &amp; mendalam",
+                btnAllDays: "Lihat Semua 60 Hari", btnStart: "Mulai dari Hari 1",
+                dashboardTitle: "60 Petualangan Presentasi", dashboardSubtitle: "Setiap hari adalah presentasi slide yang indah &amp; mendalam",
                 streak: "STREAK", prepareTitle: "Siapkan Dulu Yuk!", prepareIntro: "Persiapan hanya 5 menit. Cari tempat yang nyaman dan matikan gadget dulu ya!",
                 prepareReady: "✅ Semua bahan sudah siap", preparePlace: "✅ Tempat nyaman &amp; gadget mati", prepareTime: "✅ Waktu 25-35 menit siap",
                 activityTitle: "Aktivitas Utama (15–20 menit)", activityTip: "💡 Tip: Tiru dan rayakan usaha anak! Anak belajar dari contohmu.",
@@ -869,7 +869,158 @@
                 tips: { id: "Perayaan bersama memperkuat attachment dan growth mindset. Rayakan proses, bukan hanya hasil.", en: "Celebrating together strengthens attachment and growth mindset. Celebrate the process, not just the result." }, 
                 challenge: { id: "Buat buku kenangan 30 hari dan lanjutkan petualangan setiap minggu.", en: "Make a 30-day memory book and continue the adventures every week." }, 
                 funPrompts: { id: ["Ayo kita rayakan bersama! 🌟🎉"], en: ["Let’s celebrate together! 🌟🎉"] } 
+,
+            { 
+                day: 31, week: 5, emoji: "🦘", 
+                title: { id: "Lompat dan Keseimbangan", en: "Jump and Balance" }, 
+                story: { id: "Kaki kita kuat! Mari kita latihan lompat seperti kanguru dan berdiri di satu kaki seperti bangau. Latihan ini membuat tubuh kita lebih stabil dan otak lebih pintar mengatur gerakan.", en: "Our legs are strong! Let's practice jumping like a kangaroo and standing on one leg like a stork. This trains body stability and helps the brain control movement better." }, 
+                prepItems: { id: ["🦘 Ruang terbuka atau tikar", "🧸 Boneka untuk ditiru"], en: ["🦘 Open space or mat", "🧸 Stuffed toy to copy"] }, 
+                activitySteps: { id: ["Lompat ke depan 10 kali dengan dua kaki.", "Berdiri di satu kaki selama 5 hitungan (ganti kaki).", "Lompat seperti katak sambil mengatakan 'katak!'.", "Jalan di garis lurus seperti di tali."], en: ["Jump forward 10 times with both feet.", "Stand on one leg for 5 counts (switch legs).", "Jump like a frog while saying 'frog!'.", "Walk on a straight line like on a tightrope."] }, 
+                game: { id: "Lompat ke Target!", en: "Jump to the Target!" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Lompat ke arah KIRI!", en: "Jump to the LEFT!" }, 
+                conversationStarter: { id: "Bagian tubuh mana yang paling membantu kamu lompat?", en: "Which part of your body helps you jump the most?" },
+                expertBenefit: { id: "Latihan keseimbangan dan lompat meningkatkan gross motor skills, vestibular system, dan koordinasi yang mendukung kemampuan belajar di sekolah.", en: "Balance and jumping exercises improve gross motor skills, the vestibular system, and coordination that support school learning." },
+                expertTips: { id: "Mulai dengan dukungan (pegang tangan), lalu kurangi bantuan secara bertahap. Rayakan setiap usaha kecil.", en: "Start with support (holding hands), then gradually reduce help. Celebrate every small effort." }, 
+                challenge: { id: "Setiap hari latihan berdiri satu kaki 10 detik.", en: "Every day practice standing on one leg for 10 seconds." }, 
+                funPrompts: { id: ["Ayo kita jadi kanguru yang hebat! 🦘"], en: ["Let's be awesome kangaroos! 🦘"] } 
+            },
+            { 
+                day: 32, week: 5, emoji: "📿", 
+                title: { id: "Merangkai Manik-Manik", en: "Stringing Beads" }, 
+                story: { id: "Jari-jari kecil kita hebat! Mari kita rangkai manik-manik menjadi kalung atau gelang. Latihan ini membuat jari-jari kita kuat dan pintar untuk menulis nanti.", en: "Our little fingers are amazing! Let's string beads into a necklace or bracelet. This strengthens our fingers and prepares them for writing later." }, 
+                prepItems: { id: ["📿 Manik-manik besar atau kancing", "🧵 Tali atau benang tebal"], en: ["📿 Large beads or buttons", "🧵 Thick string or yarn"] }, 
+                activitySteps: { id: ["Rangkai 10 manik dengan dua warna bergantian.", "Buat pola: merah-biru-merah-biru.", "Rangkai dengan satu tangan saja (latihan sulit).", "Buat kalung panjang dan pendek."], en: ["String 10 beads alternating two colors.", "Make a pattern: red-blue-red-blue.", "String using only one hand (challenging practice).", "Make long and short necklaces."] }, 
+                game: { id: "Rangkai Cepat & Pola!", en: "String Fast & Patterns!" }, 
+                gameType: "pattern", 
+                gamePrompt: { id: "Buat pola yang sama!", en: "Make the same pattern!" }, 
+                conversationStarter: { id: "Pola apa yang paling kamu suka buat?", en: "What pattern do you like making the most?" },
+                expertBenefit: { id: "Aktivitas merangkai melatih fine motor control, bilateral coordination, dan visual-motor integration — fondasi penting untuk menulis dan menggunakan alat.", en: "Stringing activities train fine motor control, bilateral coordination, and visual-motor integration — key foundations for writing and using tools." },
+                expertTips: { id: "Gunakan manik besar di awal. Puji proses Wah jari kamu kuat sekali! bukan hanya hasil.", en: "Use large beads at first. Praise the process Wow your fingers are so strong! not just the result." }, 
+                challenge: { id: "Buat gelang untuk anggota keluarga.", en: "Make a bracelet for a family member." }, 
+                funPrompts: { id: ["Ayo kita buat perhiasan ajaib! 📿"], en: ["Let's make magical jewelry! 📿"] } 
+            },
+            { 
+                day: 33, week: 5, emoji: "💧", 
+                title: { id: "Bermain Air Sensorik", en: "Sensory Water Play" }, 
+                story: { id: "Air bisa membuat kita tenang atau excited! Mari kita main air dengan tangan, spons, dan cangkir. Ini membantu otak kita mengatur sensasi dan membuat tubuh rileks.", en: "Water can make us calm or excited! Let's play with water using hands, sponges, and cups. This helps our brain regulate sensations and relax the body." }, 
+                prepItems: { id: ["💧 Ember kecil + air", "🧽 Spons, cangkir, corong"], en: ["💧 Small bucket + water", "🧽 Sponge, cups, funnel"] }, 
+                activitySteps: { id: ["Tuang air dari satu cangkir ke cangkir lain.", "Peras spons dan rasakan airnya.", "Buat hujan dengan jari.", "Main mandi boneka dengan air hangat."], en: ["Pour water from one cup to another.", "Squeeze the sponge and feel the water.", "Make rain with your fingers.", "Give the doll a bath with warm water."] }, 
+                game: { id: "Tebak Air Panas-Dingin!", en: "Guess Hot or Cold Water!" }, 
+                gameType: "sensory", 
+                gamePrompt: { id: "Manakah yang dingin?", en: "Which one is cold?" }, 
+                conversationStarter: { id: "Bagaimana perasaanmu saat main air?", en: "How do you feel when playing with water?" },
+                expertBenefit: { id: "Sensory play dengan air mendukung regulasi sensorik, mengurangi kecemasan, dan meningkatkan fokus serta keterampilan sosial.", en: "Water sensory play supports sensory regulation, reduces anxiety, and improves focus and social skills." },
+                expertTips: { id: "Biarkan anak memimpin. Jika anak sensitif terhadap air, mulai dengan spons kering dulu.", en: "Let the child lead. If the child is sensitive to water, start with a dry sponge." }, 
+                challenge: { id: "Main air 10 menit setiap hari selama seminggu.", en: "Play with water for 10 minutes every day for a week." }, 
+                funPrompts: { id: ["Ayo kita jadi ilmuwan air! 💧"], en: ["Let's be water scientists! 💧"] } 
+            },
+            { 
+                day: 34, week: 5, emoji: "✖️", 
+                title: { id: "Gerakan Silang Tubuh", en: "Cross Body Movements" }, 
+                story: { id: "Otak kiri dan kanan kita suka bekerja sama! Gerakan silang (tangan kiri sentuh lutut kanan) membantu kedua sisi otak berkomunikasi lebih baik. Bagus untuk motorik kasar dan konsentrasi.", en: "Our left and right brain love working together! Cross-body movements (left hand touches right knee) help both sides of the brain communicate better. Great for gross motor and concentration." }, 
+                prepItems: { id: ["🪞 Cermin", "🎵 Musik riang (opsional)"], en: ["🪞 Mirror", "🎵 Upbeat music (optional)"] }, 
+                activitySteps: { id: ["Tangan kanan sentuh lutut kiri, lalu ganti.", "Lakukan sambil berjalan di tempat.", "Buat gerakan X besar dengan tangan dan kaki.", "Lompat sambil menyilang tangan di depan dada."], en: ["Right hand touches left knee, then switch.", "Do it while marching in place.", "Make a big X with arms and legs.", "Jump while crossing arms in front of chest."] }, 
+                game: { id: "Silang & Sentuh Cepat!", en: "Cross & Touch Fast!" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Tangan KIRI sentuh lutut KANAN!", en: "LEFT hand touch RIGHT knee!" }, 
+                conversationStarter: { id: "Gerakan mana yang paling sulit untukmu?", en: "Which movement is the hardest for you?" },
+                expertBenefit: { id: "Crossing the midline melatih integrasi otak, penting untuk membaca, menulis, dan koordinasi mata-tangan.", en: "Crossing the midline trains brain integration, important for reading, writing, and eye-hand coordination." },
+                expertTips: { id: "Lakukan pelan-pelan di depan cermin. Buat jadi permainan lucu, bukan latihan.", en: "Do it slowly in front of a mirror. Make it a fun game, not exercise." }, 
+                challenge: { id: "Lakukan 10 gerakan silang setiap pagi.", en: "Do 10 cross-body movements every morning." }, 
+                funPrompts: { id: ["Ayo kita buat huruf X dengan tubuh! ✖️"], en: ["Let's make the letter X with our bodies! ✖️"] } 
+            },
+            { 
+                day: 35, week: 5, emoji: "✂️", 
+                title: { id: "Gunting dan Potong", en: "Cut and Snip" }, 
+                story: { id: "Jari dan tangan kita belajar menggunakan gunting! Ini latihan penting sebelum anak belajar menulis dengan rapi di sekolah. Latihan motorik halus yang sangat bagus.", en: "Our fingers and hands are learning to use scissors! This is an important exercise before children learn to write neatly at school. Excellent fine motor practice." }, 
+                prepItems: { id: ["✂️ Gunting anak yang aman", "📄 Kertas bekas atau koran"], en: ["✂️ Child-safe scissors", "📄 Scrap paper or newspaper"] }, 
+                activitySteps: { id: ["Potong kertas menjadi potongan-potongan kecil.", "Potong garis lurus yang sudah digambar.", "Potong garis bergelombang.", "Potong dan buat salju dari kertas."], en: ["Cut paper into small pieces.", "Cut along straight lines you drew.", "Cut wavy lines.", "Cut and make snow from paper."] }, 
+                game: { id: "Potong & Kumpulkan!", en: "Cut & Collect!" }, 
+                gameType: "fine-motor", 
+                gamePrompt: { id: "Potong kertas sebanyak mungkin!", en: "Cut as much paper as you can!" }, 
+                conversationStarter: { id: "Bagaimana rasanya memegang gunting?", en: "How does it feel holding the scissors?" },
+                expertBenefit: { id: "Menggunakan gunting melatih kekuatan tangan, koordinasi mata-tangan, dan kontrol motorik halus yang krusial untuk menulis.", en: "Using scissors trains hand strength, eye-hand coordination, and fine motor control crucial for writing." },
+                expertTips: { id: "Mulai dengan kertas tebal atau koran. Puji usaha Jari kamu semakin kuat!", en: "Start with thick paper or newspaper. Praise effort Your fingers are getting stronger!" }, 
+                challenge: { id: "Buat kolase dari potongan kertas yang kamu gunting.", en: "Make a collage from the paper pieces you cut." }, 
+                funPrompts: { id: ["Ayo kita jadi tukang potong kertas ajaib! ✂️"], en: ["Let's be magical paper cutters! ✂️"] } 
+            },
+            { 
+                day: 36, week: 6, emoji: "⚖️", 
+                title: { id: "Berjalan di Garis Keseimbangan", en: "Balance on the Line" }, 
+                story: { id: "Bayangkan kita berjalan di atas tali di sirkus! Latihan berjalan di garis lurus membuat tubuh kita lebih stabil dan otak lebih pintar mengatur keseimbangan. Bagian motorik kasar yang penting.", en: "Imagine we are walking on a circus tightrope! Walking on a straight line trains our body to be more stable and our brain to better manage balance. Important gross motor skill." }, 
+                prepItems: { id: ["📏 Tali, selotip, atau garis di lantai", "🦶 Kaki telanjang (opsional)"], en: ["📏 Rope, tape, or line on the floor", "🦶 Bare feet (optional)"] }, 
+                activitySteps: { id: ["Berjalan di garis lurus maju mundur.", "Berjalan dengan satu kaki di depan yang lain.", "Berjalan sambil membawa benda di kepala.", "Berdiri di ujung garis dan putar badan pelan."], en: ["Walk forward and backward on the straight line.", "Walk with one foot in front of the other.", "Walk while carrying something on your head.", "Stand at the end of the line and slowly turn around."] }, 
+                game: { id: "Jalan di Tali Tanpa Jatuh!", en: "Walk the Line Without Falling!" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Jalan pelan-pelan di garis!", en: "Walk slowly on the line!" }, 
+                conversationStarter: { id: "Bagaimana rasanya ketika kamu hampir jatuh?", en: "How does it feel when you almost fall?" },
+                expertBenefit: { id: "Latihan keseimbangan meningkatkan proprioception dan vestibular input yang mendukung postur dan konsentrasi.", en: "Balance training improves proprioception and vestibular input that supports posture and concentration." },
+                expertTips: { id: "Mulai dengan garis lebar. Pegang tangan jika perlu, lalu kurangi bantuan.", en: "Start with a wide line. Hold hands if needed, then reduce support." }, 
+                challenge: { id: "Berjalan di garis 5 kali bolak-balik setiap hari.", en: "Walk the line 5 times back and forth every day." }, 
+                funPrompts: { id: ["Ayo kita jadi pesenam tali! ⚖️"], en: ["Let's be tightrope gymnasts! ⚖️"] } 
+            },
+            { 
+                day: 37, week: 6, emoji: "✏️", 
+                title: { id: "Mewarnai dengan Presisi", en: "Coloring with Precision" }, 
+                story: { id: "Kita bisa mewarnai di dalam garis dengan rapi! Latihan ini membuat tangan kita kuat dan pintar mengendalikan gerakan kecil. Sangat bagus untuk motorik halus.", en: "We can color inside the lines neatly! This practice makes our hands strong and smart at controlling small movements. Excellent for fine motor skills." }, 
+                prepItems: { id: ["🎨 Krayon atau spidol", "🖼️ Gambar outline sederhana"], en: ["🎨 Crayons or markers", "🖼️ Simple outline pictures"] }, 
+                activitySteps: { id: ["Warnai lingkaran besar dengan warna berbeda.", "Warnai dalam garis tanpa keluar.", "Gunakan tekanan berbeda (pelan dan kuat).", "Buat bayangan dengan warna yang sama."], en: ["Color big circles with different colors.", "Color inside the lines without going out.", "Use different pressure (gentle and strong).", "Create shading with the same color."] }, 
+                game: { id: "Lomba Mewarnai Rapi!", en: "Neat Coloring Race!" }, 
+                gameType: "fine-motor", 
+                gamePrompt: { id: "Warnai se-rapi mungkin!", en: "Color as neatly as possible!" }, 
+                conversationStarter: { id: "Bagian mana yang paling sulit diwarnai?", en: "Which part is the hardest to color?" },
+                expertBenefit: { id: "Kontrol tekanan dan presisi saat mewarnai membangun kekuatan tangan dan kontrol motorik halus untuk menulis.", en: "Pressure control and precision while coloring builds hand strength and fine motor control for writing." },
+                expertTips: { id: "Jangan terlalu menekankan rapi. Lebih penting proses dan kegembiraan.", en: "Don't over-emphasize neat. The process and joy are more important." }, 
+                challenge: { id: "Selesaikan satu halaman mewarnai dengan hati-hati.", en: "Finish one coloring page carefully." }, 
+                funPrompts: { id: ["Ayo kita jadi seniman presisi! ✏️"], en: ["Let's be precision artists! ✏️"] } 
+            },
+            { 
+                day: 38, week: 6, emoji: "👂", 
+                title: { id: "Tebak Suara dan Tekstur", en: "Guess Sounds and Textures" }, 
+                story: { id: "Telinga dan tangan kita adalah detektif super! Mari tutup mata dan tebak suara atau tekstur benda. Latihan sensorik ini membuat otak kita lebih pintar memproses informasi.", en: "Our ears and hands are super detectives! Let's close our eyes and guess sounds or textures. This sensory practice makes our brain smarter at processing information." }, 
+                prepItems: { id: ["👂 Telinga kita", "🔊 Benda bersuara (kunci, sendok)", "✋ Benda dengan tekstur berbeda"], en: ["👂 Our ears", "🔊 Sound-making objects (keys, spoons)", "✋ Objects with different textures"] }, 
+                activitySteps: { id: ["Tutup mata, dengar suara, tebak apa itu.", "Sentuh benda dengan mata tertutup, tebak teksturnya.", "Tirukan suara yang didengar.", "Susun benda dari kasar ke halus."], en: ["Close eyes, listen to sound, guess what it is.", "Touch objects with eyes closed, guess the texture.", "Imitate the sound you heard.", "Sort objects from rough to smooth."] }, 
+                game: { id: "Tebak Suara & Tekstur Misterius!", en: "Guess Mysterious Sounds & Textures!" }, 
+                gameType: "sensory", 
+                gamePrompt: { id: "Suara atau tekstur apa ini?", en: "What sound or texture is this?" }, 
+                conversationStarter: { id: "Suara atau tekstur mana yang paling menarik?", en: "Which sound or texture is the most interesting?" },
+                expertBenefit: { id: "Latihan diskriminasi auditori dan taktil mendukung perkembangan bahasa, perhatian, dan integrasi sensorik.", en: "Auditory and tactile discrimination training supports language development, attention, and sensory integration." },
+                expertTips: { id: "Mulai dengan kontras yang jelas. Biarkan anak memimpin eksplorasi.", en: "Start with clear contrasts. Let the child lead the exploration." }, 
+                challenge: { id: "Tebak 5 suara dan 5 tekstur berbeda setiap hari.", en: "Guess 5 sounds and 5 textures every day." }, 
+                funPrompts: { id: ["Ayo kita jadi detektif sensorik! 👂✋"], en: ["Let's be sensory detectives! 👂✋"] } 
+            },
+            { 
+                day: 39, week: 6, emoji: "🧱", 
+                title: { id: "Membangun Balok dan Menara", en: "Building with Blocks" }, 
+                story: { id: "Kita bisa membangun menara tinggi dan jembatan! Bermain balok melatih motorik halus, kasar, pemahaman ruang, dan kreativitas. Bagus sekali untuk otak!", en: "We can build tall towers and bridges! Playing with blocks trains fine and gross motor skills, spatial understanding, and creativity. Great for the brain!" }, 
+                prepItems: { id: ["🧱 Balok kayu, kardus, atau mainan bangunan", "🚗 Mainan mobil kecil (opsional)"], en: ["🧱 Wooden blocks, cardboard, or building toys", "🚗 Small toy cars (optional)"] }, 
+                activitySteps: { id: ["Bangun menara setinggi mungkin.", "Buat jembatan untuk mobil mainan lewat.", "Buat rumah dengan 4 dinding.", "Runtuhkan dan bangun lagi dengan desain baru."], en: ["Build the tallest tower possible.", "Make a bridge for toy cars to cross.", "Make a house with 4 walls.", "Knock it down and build again with a new design."] }, 
+                game: { id: "Tantangan Bangun Cepat!", en: "Fast Build Challenge!" }, 
+                gameType: "pattern", 
+                gamePrompt: { id: "Bangun menara setinggi ini!", en: "Build a tower this tall!" }, 
+                conversationStarter: { id: "Bagaimana cara membuat bangunanmu tidak jatuh?", en: "How do you make your building not fall?" },
+                expertBenefit: { id: "Bermain konstruksi mengembangkan spatial skills, planning, kreativitas, dan konsep matematika dasar sambil melatih motorik.", en: "Construction play develops spatial skills, planning, creativity, and basic math concepts while training motor skills." },
+                expertTips: { id: "Biarkan anak memimpin. Tanya Apa yang akan kamu bangun selanjutnya?", en: "Let the child lead. Ask What will you build next?" }, 
+                challenge: { id: "Bangun 3 struktur berbeda dalam 15 menit.", en: "Build 3 different structures in 15 minutes." }, 
+                funPrompts: { id: ["Ayo kita jadi arsitek cilik! 🧱"], en: ["Let's be little architects! 🧱"] } 
+            },
+            { 
+                day: 40, week: 6, emoji: "🧘", 
+                title: { id: "Yoga Gerakan Hewan", en: "Animal Yoga Movements" }, 
+                story: { id: "Tubuh dan pikiran kita bisa tenang bersama. Mari kita tiru hewan dengan gerakan yoga sederhana: pohon, kucing, ular, dan kupu-kupu. Bagus untuk keseimbangan, motorik, dan sensorik.", en: "Our body and mind can be calm together. Let's copy animals with simple yoga moves: tree, cat, snake, and butterfly. Great for balance, motor skills, and sensory awareness." }, 
+                prepItems: { id: ["🧘 Matras atau karpet", "🎵 Musik tenang (opsional)"], en: ["🧘 Mat or carpet", "🎵 Calm music (optional)"] }, 
+                activitySteps: { id: ["Posisi pohon: berdiri satu kaki, tangan di atas.", "Posisi kucing: merangkak, lengkungkan punggung.", "Posisi kupu-kupu: duduk, telapak kaki bertemu.", "Bernapas dalam-dalam seperti angin."], en: ["Tree pose: stand on one leg, hands up.", "Cat pose: on all fours, arch the back.", "Butterfly pose: sit, soles of feet together.", "Breathe deeply like the wind."] }, 
+                game: { id: "Hewan Yoga Tebak!", en: "Guess the Yoga Animal!" }, 
+                gameType: "body-move", 
+                gamePrompt: { id: "Jadilah pohon yang tinggi!", en: "Be a tall tree!" }, 
+                conversationStarter: { id: "Gerakan mana yang membuatmu merasa tenang?", en: "Which movement makes you feel calm?" },
+                expertBenefit: { id: "Yoga anak meningkatkan body awareness, regulasi emosi, fleksibilitas, keseimbangan, dan kemampuan fokus.", en: "Kids yoga improves body awareness, emotional regulation, flexibility, balance, and focus ability." },
+                expertTips: { id: "Jadikan permainan, bukan latihan serius. Tiru suara hewan untuk membuatnya menyenangkan.", en: "Make it a game, not serious exercise. Imitate animal sounds to make it fun." }, 
+                challenge: { id: "Lakukan 5 gerakan yoga sebelum tidur.", en: "Do 5 yoga moves before bedtime." }, 
+                funPrompts: { id: ["Ayo kita jadi hewan yoga! 🐱🦋"], en: ["Let's be yoga animals! 🐱🦋"] } 
             }
+
         ];
 
         function getCurrentTheme() {
@@ -1725,7 +1876,7 @@
             <div class="flex justify-between items-center mb-4">
                 <div>
                     <div class="text-sm text-[#E76F51] font-semibold">AKSES PREMIUM</div>
-                    <div class="text-2xl font-bold">30 Hari Petualangan Anak Hebat</div>
+                    <div class="text-2xl font-bold">60 Hari Petualangan Anak Hebat</div>
                 </div>
                 <button onclick="hideCheckoutModal()" class="text-2xl leading-none">×</button>
             </div>
