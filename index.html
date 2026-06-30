@@ -1491,7 +1491,7 @@
         }
 
         
-        function showCheckoutModal() {
+        function addToCart() {
             document.getElementById("checkout-modal").classList.remove("hidden");
             document.getElementById("checkout-status").classList.add("hidden");
             // prefill email if known
@@ -1503,7 +1503,7 @@
             document.getElementById("checkout-modal").classList.add("hidden");
         }
 
-        async function startScalevCheckout() {
+        async function checkoutFromCart() {
             const emailInput = document.getElementById("checkout-email");
             const status = document.getElementById("checkout-status");
             const email = emailInput.value.trim();
@@ -1543,6 +1543,160 @@
             }
         }
 
+
+                // ==================== COMPLETE CART FLOW (Scalev Storefront API) ====================
+        let currentCart = { items: [], total: PRODUCT_PRICE };
+
+        async function addToCart() {
+            const statusEl = document.getElementById("checkout-status");
+            try {
+                // 1. Ensure guest cart exists
+                await scalevRequest("/public/cart", "GET");
+
+                // 2. Add item (using direct item for simplicity; replace with product_id for production)
+                await scalevRequest("/public/cart/items", "POST", {
+                    items: [{
+                        name: PRODUCT_NAME,
+                        price: PRODUCT_PRICE,
+                        quantity: 1
+                    }]
+                });
+
+                // Update local cart state
+                currentCart.items = [{ name: PRODUCT_NAME, price: PRODUCT_PRICE, quantity: 1 }];
+                currentCart.total = PRODUCT_PRICE;
+
+                updateCartCount(1);
+
+                // Show cart immediately for seamless feel
+                showCartModal();
+
+            } catch (err) {
+                console.error("Scalev cart error:", err);
+                alert("Gagal menambah ke keranjang. Pastikan STORE_ID sudah benar.\nError: " + err.message);
+            }
+        }
+
+        function updateCartCount(count) {
+            const el = document.getElementById("cart-count");
+            if (el) {
+                if (count > 0) {
+                    el.textContent = count;
+                    el.classList.remove("hidden");
+                } else {
+                    el.classList.add("hidden");
+                }
+            }
+        }
+
+        async function showCartModal() {
+            const modal = document.getElementById("cart-modal");
+            const itemsContainer = document.getElementById("cart-items");
+            const totalEl = document.getElementById("cart-total");
+            const emailInput = document.getElementById("cart-email");
+
+            modal.classList.remove("hidden");
+
+            // Try to fetch latest cart from Scalev
+            try {
+                const cartData = await scalevRequest("/public/cart", "GET");
+                if (cartData && cartData.items && cartData.items.length > 0) {
+                    currentCart.items = cartData.items;
+                    currentCart.total = cartData.total || PRODUCT_PRICE;
+                }
+            } catch (e) {
+                console.log("Could not fetch remote cart, using local");
+            }
+
+            // Render items
+            itemsContainer.innerHTML = "";
+            currentCart.items.forEach((item, index) => {
+                const div = document.createElement("div");
+                div.className = "flex justify-between items-center bg-[#FFF9F0] p-3 rounded-2xl";
+                div.innerHTML = `
+                    <div>
+                        <div class="font-medium">${item.name || PRODUCT_NAME}</div>
+                        <div class="text-xs text-[#5C4033]">Qty: ${item.quantity || 1}</div>
+                    </div>
+                    <div class="font-semibold">Rp${(item.price || PRODUCT_PRICE).toLocaleString("id-ID")}</div>
+                `;
+                itemsContainer.appendChild(div);
+            });
+
+            if (currentCart.items.length === 0) {
+                itemsContainer.innerHTML = `<div class="text-center text-[#5C4033] py-4">Keranjang kosong. Tambahkan produk dulu.</div>`;
+            }
+
+            totalEl.textContent = "Rp" + currentCart.total.toLocaleString("id-ID");
+
+            // Prefill email
+            const savedEmail = localStorage.getItem("user_email");
+            if (savedEmail) emailInput.value = savedEmail;
+        }
+
+        function hideCartModal() {
+            document.getElementById("cart-modal").classList.add("hidden");
+        }
+
+        async function checkoutFromCart() {
+            const emailInput = document.getElementById("cart-email");
+            const email = emailInput.value.trim();
+            const modal = document.getElementById("cart-modal");
+
+            if (!email || !email.includes("@")) {
+                alert("Masukkan email yang valid untuk menerima akses file.");
+                return;
+            }
+            localStorage.setItem("user_email", email);
+
+            try {
+                // Create order from current guest cart
+                const order = await scalevRequest("/public/checkout", "POST", {
+                    customer: { email: email }
+                    // Scalev will use the guest cart token automatically
+                });
+
+                hideCartModal();
+
+                // Success UI
+                const successHtml = `
+                    <div class="fixed inset-0 bg-black/70 z-[9999] flex items-center justify-center p-4">
+                        <div class="bg-white rounded-3xl max-w-md w-full p-6 text-center">
+                            <div class="text-5xl mb-4">🎉</div>
+                            <div class="text-2xl font-bold mb-2">Terima Kasih!</div>
+                            <p class="mb-4">Order berhasil dibuat. Silakan selesaikan pembayaran.</p>
+                            <div class="text-sm text-left bg-[#FFF9F0] p-4 rounded-2xl mb-4">
+                                Email: <strong>${email}</strong><br>
+                                Total: <strong>Rp${currentCart.total.toLocaleString("id-ID")}</strong>
+                            </div>
+                            <button onclick="this.closest(.fixed).remove(); window.location.reload()" 
+                                    class="w-full py-3 bg-[#E76F51] text-white rounded-3xl font-semibold">
+                                Kembali ke Halaman
+                            </button>
+                            <div class="text-xs mt-3 text-[#5C4033]">Cek email kamu untuk instruksi pembayaran & file.</div>
+                        </div>
+                    </div>
+                `;
+                document.body.insertAdjacentHTML("beforeend", successHtml);
+
+                // If Scalev returns a payment url, open it
+                if (order && (order.payment_url || order.checkout_url || order.url)) {
+                    setTimeout(() => {
+                        window.open(order.payment_url || order.checkout_url || order.url, "_blank");
+                    }, 1500);
+                }
+
+                currentCart = { items: [], total: PRODUCT_PRICE };
+                updateCartCount(0);
+
+            } catch (err) {
+                console.error(err);
+                alert("Gagal checkout via Scalev. Pastikan STORE_ID benar dan produk sudah dibuat di dashboard Scalev.\n\nError: " + err.message);
+            }
+        }
+
+        // Make addToCart globally available for the button
+        window.addToCart = addToCart;
 
         function initialize() {
             document.getElementById('dashboard').classList.add('hidden');
@@ -1591,7 +1745,7 @@
 
             <div id="checkout-status" class="hidden mb-4 text-sm p-3 rounded-2xl bg-yellow-50 text-yellow-700"></div>
 
-            <button onclick="startScalevCheckout()" 
+            <button onclick="checkoutFromCart()" 
                     class="w-full premium-button py-4 bg-[#E76F51] text-white text-lg font-semibold rounded-3xl">
                 Bayar Sekarang • Tanpa Keluar Halaman
             </button>
@@ -1602,6 +1756,40 @@
             </div>
         </div>
     </div>
+
+
+<!-- FULL CART MODAL (Scalev Storefront) -->
+<div id="cart-modal" class="hidden fixed inset-0 bg-black/70 z-[9999] flex items-end sm:items-center justify-center">
+  <div class="bg-white w-full sm:max-w-md sm:rounded-3xl rounded-t-3xl p-6 shadow-2xl">
+    <div class="flex items-center justify-between mb-4">
+      <div class="font-bold text-xl">Keranjang</div>
+      <button onclick="hideCartModal()" class="text-2xl">×</button>
+    </div>
+
+    <div id="cart-items" class="space-y-3 mb-4 min-h-[80px]">
+      <!-- items injected by JS -->
+    </div>
+
+    <div class="border-t pt-4 mb-4">
+      <div class="flex justify-between text-lg font-semibold">
+        <div>Total</div>
+        <div id="cart-total">Rp299.000</div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="text-sm font-medium">Email (untuk akses file)</label>
+      <input id="cart-email" type="email" class="w-full mt-1 border border-[#f3e8d8] rounded-2xl px-4 py-3" placeholder="nama@email.com">
+    </div>
+
+    <button onclick="checkoutFromCart()" 
+            class="w-full py-4 bg-[#E76F51] text-white font-semibold rounded-3xl text-lg">
+      Lanjut ke Pembayaran via Scalev
+    </button>
+
+    <div class="text-[10px] text-center text-[#5C4033] mt-3">Pembayaran aman • File dikirim otomatis</div>
+  </div>
+</div>
 
 </body>
 </html>
