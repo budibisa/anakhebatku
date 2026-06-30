@@ -1148,7 +1148,7 @@
             document.getElementById('progress-bar-container').classList.remove('hidden');
             document.getElementById('progress-bar').style.width = progressPercent + '%';
             const bottomText = document.getElementById('bottom-slide-text');
-            if (bottomText) bottomText.textContent = `${currentSlideIndex + 1}/${totalSlides} • ${progressPercent}%`;
+            if (bottomText) bottomText.textContent = `${currentSlideIndex + 1}/${totalSlides}`;
 
             let html = `<div class="presentation-slide slide">`;
 
