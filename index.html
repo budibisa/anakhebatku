@@ -9,9 +9,9 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&amp;family=Playfair+Display:wght@700&amp;family=Inter:wght@400;500&amp;display=swap');
         
-        body { font-family: 'Poppins', system-ui, sans-serif; background: #FDF8F3; color: #3D3D3D; line-height: 1.75; }
+        body { font-family: 'Poppins', system-ui, sans-serif; background: #FFF9F0; color: #3F2E1E; line-height: 1.75; }
         
-        .heading-serif { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; letter-spacing: -0.04em; }
+        .heading-serif { font-family: 'Playfair Display', Georgia, serif; font-weight: 700; letter-spacing: -0.05em; color: #2C3E50; }
 
         /* Responsive Slide Container */
         .slide {
@@ -36,12 +36,12 @@
 
         /* Responsive Big Emoji */
         .big-emoji {
-            font-size: 5.5rem;
+            font-size: 6rem;
             line-height: 1;
             filter: drop-shadow(0 20px 30px rgb(0 0 0 / 0.12));
             transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-        @media (min-width: 640px) { .big-emoji { font-size: 7rem; } }
+        @media (min-width: 640px) { .big-emoji { font-size: 7.5rem; } }
         @media (min-width: 768px) { .big-emoji { font-size: 9rem; } }
         
         .big-emoji:hover { transform: scale(1.08) rotate(3deg); }
@@ -158,7 +158,7 @@
             line-height: 1;
             text-shadow: 0 4px 12px rgba(231, 111, 81, 0.3);
         }
-        @media (min-width: 640px) { .countdown { font-size: 5.5rem; } }
+        @media (min-width: 640px) { .countdown { font-size: 6rem; } }
         @media (min-width: 768px) { .countdown { font-size: 7rem; } }
 
         .celebration-badge {
@@ -261,8 +261,8 @@
             <h1 id="welcome-title" class="heading-serif text-[1.4rem] sm:text-[1.85rem] md:text-3xl leading-[1.05] tracking-[-1px] font-bold text-[#2C3E50] mb-2 sm:mb-4" style="font-size: clamp(1.35rem, 6.5vw, 2.8rem) !important;">30 Hari Petualangan Yang Menyenangkan</h1>
             <p id="welcome-subtitle" class="max-w-lg mx-auto text-[0.95rem] sm:text-xl text-[#5C4033] mb-6 sm:mb-8 font-light">Presentasi interaktif cantik untuk orang tua &amp; anak 3–6 tahun.<br>Penuh emoji besar, aktivitas mendalam, dan ilmu yang mudah.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#2C3E50] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
-                <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-5 py-3.5 sm:px-10 sm:py-5 bg-white border-2 border-[#f3e8d8] text-[#2C3E50] text-base sm:text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
+                <button onclick="showDashboard()" id="btn-all-days" class="premium-button px-6 py-3.5 sm:px-14 sm:py-5 bg-[#E76F51] text-white text-base sm:text-xl font-semibold rounded-3xl">Lihat Semua 30 Hari</button>
+                <button onclick="startFirstAdventure()" id="btn-start" class="premium-button px-5 py-3.5 sm:px-10 sm:py-5 bg-white border-2 border-[#F4D35E] text-[#2C3E50] hover:bg-[#FFF9F0] text-base sm:text-xl font-semibold rounded-3xl">Mulai dari Hari 1</button>
             </div>
         </div>
     </div>
@@ -1272,7 +1272,7 @@
                                 ${t('finishBadge')} • ${currentLang === 'id' ? 'Badge' : 'Badge'} ${badgeCount}/30
                             </div>
                         </div>
-                        <button onclick="completeDayAndNext()" class="premium-button px-12 py-5 bg-[#2C3E50] text-white text-xl font-semibold rounded-3xl">${t('finishBtn')} ${theme.day + 1}</button>
+                        <button onclick="completeDayAndNext()" class="premium-button px-12 py-5 bg-[#E76F51] text-white text-xl font-semibold rounded-3xl">${t('finishBtn')} ${theme.day + 1}</button>
                     </div>
                 `;
             }
@@ -1617,5 +1617,141 @@
 .header-home .home-text { display: none; }
 @media (min-width: 640px) {
     .header-home .home-text { display: inline; }
+}
+</style>
+
+<style id="attractive-ui-refresh">
+/* ===== TOTAL UI REFRESH - More Attractive & Premium ===== */
+
+/* Better background */
+body {
+    background: #FFF9F0 !important;
+    color: #3F2E1E !important;
+}
+
+/* More elegant headings */
+.heading-serif {
+    font-family: 'Playfair Display', Georgia, serif !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.06em !important;
+    color: #2C3E50 !important;
+}
+
+/* === Premium Buttons - Much more attractive === */
+.premium-button {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-weight: 600 !important;
+    box-shadow: 0 4px 14px -2px rgb(0 0 0 / 0.12) !important;
+}
+
+/* Primary button - vibrant coral */
+#btn-all-days {
+    background: #E76F51 !important;
+    color: white !important;
+}
+
+#btn-all-days:hover {
+    background: #D45E43 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Secondary button - warm with yellow border */
+#btn-start {
+    background: white !important;
+    border: 2px solid #F4D35E !important;
+    color: #2C3E50 !important;
+}
+
+#btn-start:hover {
+    background: #FFF9F0 !important;
+    border-color: #E8C24A !important;
+}
+
+/* === More attractive cards === */
+.premium-card {
+    background: white !important;
+    border-radius: 24px !important;
+    box-shadow: 0 8px 25px -8px rgb(0 0 0 / 0.08), 0 2px 8px -2px rgb(0 0 0 / 0.05) !important;
+    border: 1px solid #f3e8d8 !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.premium-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 15px 35px -10px rgb(0 0 0 / 0.12) !important;
+}
+
+/* === Bigger, more delightful emojis === */
+.big-emoji {
+    font-size: 6.5rem !important;
+    line-height: 1 !important;
+    filter: drop-shadow(0 10px 20px rgb(0 0 0 / 0.1)) !important;
+}
+
+@media (min-width: 640px) {
+    .big-emoji { font-size: 8rem !important; }
+}
+
+/* === Welcome section more attractive === */
+#welcome-title {
+    color: #2C3E50 !important;
+    font-weight: 700 !important;
+}
+
+#welcome-subtitle {
+    color: #5C4033 !important;
+}
+
+/* Badge */
+#welcome-badge {
+    background: #FFF9F0 !important;
+    border-color: #F4D35E !important;
+    color: #E76F51 !important;
+    font-weight: 700 !important;
+}
+
+/* === Dashboard improvements === */
+#dashboard-title {
+    color: #2C3E50 !important;
+}
+
+#streak-count {
+    color: #E76F51 !important;
+}
+
+/* Make dashboard cards more fun with colored accent */
+#days-grid .premium-card {
+    position: relative;
+    overflow: hidden;
+}
+
+#days-grid .premium-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, #F4D35E, #E76F51);
+}
+
+/* Header polish */
+.fixed-header {
+    background: rgba(255, 249, 240, 0.96) !important;
+    border-bottom: 1px solid #f3e8d8 !important;
+}
+
+.lang-switcher {
+    background: white !important;
+    border: 1px solid #F4D35E !important;
+}
+
+.lang-btn.active {
+    background: #F4D35E !important;
+    color: #3F2E1E !important;
+}
+
+.header-home {
+    border: 1px solid #F4D35E !important;
 }
 </style>
